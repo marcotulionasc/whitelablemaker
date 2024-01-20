@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>White Label Marker</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+    <!-- Add Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- Bootstrap -->
+		<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css"/>
+
+		<!-- Slick -->
+		<link type="text/css" rel="stylesheet" href="css/slick.css"/>
+		<link type="text/css" rel="stylesheet" href="css/slick-theme.css"/>
+
+		<!-- nouislider -->
+		<link type="text/css" rel="stylesheet" href="css/nouislider.min.css"/>
+
+		<!-- Font Awesome Icon -->
+		<link rel="stylesheet" href="css/font-awesome.min.css">
+
+		<!-- Custom stlylesheet -->
+		<link type="text/css" rel="stylesheet" href="css/style.css"/>
+
+    <style>
+        .carousel-image {
+            width: 100%;
+            height: auto;
+            max-width: 300px;
+            max-height: 450px;
+            object-fit: cover;
+        }
+
+        @media (max-width: 768px) {
+            .carousel-only-mobile {
+                display: block;
+            }
+
+            .carousel-only-desktop {
+                display: none;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .carousel-only-mobile {
+                display: none;
+            }
+
+            .carousel-only-desktop {
+                display: block;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    
+<!-- Navigation-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+    <div class="container px-4 px-lg-5">
+        <a class="navbar-brand" href="#!">White Label Marker</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+            <!-- Botões de login e meus ingressos (para mobile) -->
+            <form class="d-flex d-lg-none mb-2">
+                <button class="btn btn-outline-dark me-2 shadow-lg " type="submit">
+                    <i class="bi bi-person-fill"></i>
+                    Login
+                </button>
+
+                <button class="btn btn-outline-dark" type="submit">
+                    <i class="bi bi-ticket me-1"></i>
+                    Meus ingressos
+                    <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                </button>
+            </form>
+
+            <!-- Barra de pesquisa de eventos -->
+            <form class="d-flex">
+                <input class="form-control me-1" type="search" placeholder="Pesquisar eventos" aria-label="Search">
+                <button class="btn btn-outline-dark me-2" type="button">
+                    <i class="bi bi-search me-1"></i>
+                </button>
+
+                <!-- Input nativo de data -->
+                <input class="form-control me-4" type="date" class="form-control" id="datePicker">
+
+            </form>
+
+            <!-- Botões de login e meus ingressos (para desktop) -->
+            <form class="d-none d-lg-flex ms-auto">
+                <button class="btn btn-outline-dark me-3" type="submit">
+                    <i class="bi bi-person-fill"></i>
+                    Login
+                </button>
+
+                <button class="btn btn-outline-dark ms-auto" type="submit">
+                    <i class="bi bi-ticket"></i> <!-- Arrumar isso aqui -->
+                    Meus ingressos
+                    <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                </button>
+                
+                </button>
+            </form>
+        </div>
+    </div>
+</nav>
+
+
+
+
+    <!-- Header-->
+
+    <header class="bg-dark py-1 shadow-lg">
+        <div class="container px-4 px-lg- my-4">
+            <!-- Carrossel para dispositivos móveis -->
+            <div id="carouselHeaderMobile" class="carousel-only-mobile carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" class="d-block mx-auto carousel-image" alt="Banner 1" style="border-radius: 10px;">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" class="d-block mx-auto carousel-image" alt="Banner 2" style="border-radius: 10px;">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" class="d-block mx-auto carousel-image" alt="Banner 3" style="border-radius: 10px;">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselHeaderMobile"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Anterior</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselHeaderMobile"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Próximo</span>
+                </button>
+            </div>
+
+            <!-- Banners para dispositivos desktop -->
+            <div class="text-center text-white mt-4 carousel-only-desktop">
+                <div class="row justify-content-center mt-5">
+                    <div class="col-3">
+                        <img src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="Banner 1" class="img-fluid" style="width: 280px; height: 300px; border-radius: 10px;">
+                    </div>
+                    <div class="col-3">
+                        <img src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="Banner 2" class="img-fluid" style="width: 280px; height: 300px; border-radius: 10px;">
+                    </div>
+                    <div class="col-3">
+                        <img src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="Banner 3" class="img-fluid" style="width: 280px; height: 300px; border-radius: 10px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Section dos produtos -->
+    <section class="py-5">
+
+        <div class="container">
+            <div class="row justify-content-center align-items-center">
+    
+                <!-- Botões para PC -->
+                <div class="col-lg-6 d-none d-lg-block">
+                    <div class="btn-group">
+                        <button class="btn btn-outline-dark me-3">Todos os eventos</button>
+                        <button class="btn btn-outline-dark me-3">Festival</button>
+                        <button class="btn btn-outline-dark me-3">Carnaval</button>
+                        <button class="btn btn-outline-dark me-3">Outro filtro</button>
+                        <button class="btn btn-outline-dark me-3">Outro filtro</button>
+                    </div>
+                </div>
+    
+                <!-- Menu suspenso para dispositivos móveis -->
+                <div class="col-12 d-lg-none mt-3">
+                    <div class="input-group">
+                        <select class="form-select" id="mobileSortingDropdown">
+                            <option selected>Ordenar por...</option>
+                            <option value="recentes">Mais Recentes</option>
+                            <option value="populares">Mais Populares</option>
+                            <option value="preco-baixo-alto">Preço - Baixo para Alto</option>
+                            <option value="preco-alto-baixo">Preço - Alto para Baixo</option>
+                            <option value="a-z">A-Z</option>
+                        </select>
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+
+        <div class="container px-4 px-lg-5 mt-5">
+            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                <div class="col mb-5">
+                    <div class="card h-100 shadow-lg shadow-lg">
+                        <!-- Product image-->
+                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <h5 class="fw-bolder">Nome evento</h5>
+                                <i class="fas fa-calendar" style="font-size: smaller;"></i> <label style="font-size: smaller;">19/01</label> <br>
+                                <i class="fas fa-map-marker-alt" style="font-size: smaller;"></i> <label style="font-size: smaller;">Campinas - SP </label>
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Comprar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-5">
+                    <div class="card h-100 shadow-lg">
+                        <!-- Sale badge-->
+                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale
+                        </div>
+                        <!-- Product image-->
+                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">Nome evento</h5>
+                                <i class="fas fa-calendar" style="font-size: smaller;"></i> <label style="font-size: smaller;">19/01</label> <br>
+                                <i class="fas fa-map-marker-alt" style="font-size: smaller;"></i> <label style="font-size: smaller;">Campinas - SP </label>
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Comprar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-5">
+                    <div class="card h-100 shadow-lg ">
+                        <!-- Sale badge-->
+                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale
+                        </div>
+                        <!-- Product image-->
+                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">Nome evento</h5>
+                                <i class="fas fa-calendar" style="font-size: smaller;"></i> <label style="font-size: smaller;">19/01</label> <br>
+                                <i class="fas fa-map-marker-alt" style="font-size: smaller;"></i> <label style="font-size: smaller;">Campinas - SP </label>
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Comprar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-5">
+                    <div class="card h-100 shadow-lg ">
+                        <!-- Product image-->
+                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">Nome evento</h5>
+                                <i class="fas fa-calendar" style="font-size: smaller;"></i> <label style="font-size: smaller;">19/01</label> <br>
+                                <i class="fas fa-map-marker-alt" style="font-size: smaller;"></i> <label style="font-size: smaller;">Campinas - SP </label>
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Comprar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-5">
+                    <div class="card h-100 shadow-lg ">
+                        <!-- Sale badge-->
+                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale
+                        </div>
+                        <!-- Product image-->
+                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">Nome evento</h5>
+                                <i class="fas fa-calendar" style="font-size: smaller;"></i> <label style="font-size: smaller;">19/01</label> <br>
+                                <i class="fas fa-map-marker-alt" style="font-size: smaller;"></i> <label style="font-size: smaller;">Campinas - SP </label>
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Comprar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-5">
+                    <div class="card h-100 shadow-lg ">
+                        <!-- Product image-->
+                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">Nome evento</h5>
+                                <i class="fas fa-calendar" style="font-size: smaller;"></i> <label style="font-size: smaller;">19/01</label> <br>
+                                <i class="fas fa-map-marker-alt" style="font-size: smaller;"></i> <label style="font-size: smaller;">Campinas - SP </label>
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Comprar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-5">
+                    <div class="card h-100 shadow-lg">
+                        <!-- Sale badge-->
+                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale
+                        </div>
+                        <!-- Product image-->
+                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">Nome evento</h5>
+                                <i class="fas fa-calendar" style="font-size: smaller;"></i> <label style="font-size: smaller;">19/01</label> <br>
+                                <i class="fas fa-map-marker-alt" style="font-size: smaller;"></i> <label style="font-size: smaller;">Campinas - SP </label>
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Comprar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-5">
+                    <div class="card h-100 shadow-lg">
+                        <!-- Product image-->
+                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">Nome evento</h5>
+                                <i class="fas fa-calendar" style="font-size: smaller;"></i> <label style="font-size: smaller;">19/01</label> <br>
+                                <i class="fas fa-map-marker-alt" style="font-size: smaller;"></i> <label style="font-size: smaller;">Campinas - SP </label>
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Comprar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center align-items-center">
+                    <ul class="pagination mx-auto text-center justify-content-center">
+                        <li class="page-item text-center">
+                            <button class="btn btn-outline-dark me-3" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </button>
+                        </li>
+                        <li class="page-item"><a class="btn btn-outline-dark me-3" href="#">1</a></li>
+                        <li class="page-item"><a class="btn btn-outline-dark me-3" href="#">2</a></li>
+                        <li class="page-item"><a class="btn btn-outline-dark me-3" href="#">3</a></li>
+                        <li class="page-item">
+                            <button class="btn btn-outline-dark me-3" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+<!-- FOOTER -->
+<footer id="footer">
+    <div class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="footer">
+                        <h3 class="footer-title">Localização</h3>
+                        <ul class="footer-links">
+                            <li><a href="#" class="custom-link"><i class="fa fa-map-marker"></i>Rua ABC, 123, Parque Does not Exist, São Paulo</a></li>
+                            <li><a href="#" class="custom-link"><i class="fa fa-phone"></i>+55 (12) 3456-7890</a></li>
+                            <li><a href="#" class="custom-link"><i class="fas fa-envelope"></i>teste@example.com</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="footer">
+                        <h3 class="footer-title">Filtros</h3>
+                        <ul class="footer-links">
+                            <li><a href="#" class="custom-link">Todos eventos</a></li>
+                            <li><a href="#" class="custom-link">Festival</a></li>
+                            <li><a href="#" class="custom-link">Carnaval</a></li>
+                            <li><a href="#" class="custom-link">Outros filtros</a></li>
+                            <li><a href="#" class="custom-link">Outros filtros</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+              
+
+                <div class="col">
+                    <div class="footer">
+                        <h3 class="footer-title">Informação</h3>
+                        <ul class="footer-links">
+                            <li><a href="#" class="custom-link">Sobre nós</a></li>
+                            <li><a href="#" class="custom-link">Contato</a></li>
+                            <li><a href="#" class="custom-link">Politicas de privacidade</a></li>
+                            <li><a href="#" class="custom-link">Site oficial</a></li>
+                            <li><a href="#" class="custom-link">Termos e condições</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="footer">
+                        <h3 class="footer-title">Navegação</h3>
+                        <ul class="footer-links">
+                            <li><a href="#" class="custom-link">Minha Conta</a></li>
+                            <li><a href="#" class="custom-link">Meus ingressos</a></li>
+                            <li><a href="#" class="custom-link">FAQ</a></li>
+                            <li><a href="#" class="custom-link">Ajuda</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <!-- bottom footer -->
+    <div id="bottom-footer" class="section">
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <ul class="footer-payments">
+                        <li><a href="#"><i class="fa fa-cc-visa"></i></a></li>
+                        <li><a href="#"><i class="fa fa-credit-card"></i></a></li>
+                        <li><a href="#"><i class="fa fa-cc-paypal"></i></a></li>
+                        <li><a href="#"><i class="fa fa-cc-mastercard"></i></a></li>
+                        <li><a href="#"><i class="fa fa-cc-discover"></i></a></li>
+                        <li><a href="#"><i class="fa fa-cc-amex"></i></a></li>
+                    </ul>
+                    <span class="copyright">
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos direitos reservados por Marco Nascimento
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    </span>
+                </div>
+            </div>
+                <!-- /row -->
+        </div>
+        <!-- /container -->
+    </div>
+    <!-- /bottom footer -->
+</footer>
+<!-- /FOOTER -->
+    
+
+
+
+    <!-- Footer
+    <footer class="py-5 bg-dark">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; Marco Nascimento 2024</p>
+        </div>
+    </footer> -->
+
+
+
+
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+    <!-- jQuery Plugins -->
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/slick.min.js"></script>
+	<script src="js/nouislider.min.js"></script>
+	<script src="js/jquery.zoom.min.js"></script>
+	<script src="js/main.js"></script>
+</body>
+
+</html>
