@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>White Label Marker</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+    <!-- Add Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- Bootstrap -->
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
+
+    <!-- Slick -->
+    <link type="text/css" rel="stylesheet" href="css/slick.css" />
+    <link type="text/css" rel="stylesheet" href="css/slick-theme.css" />
+
+    <!-- nouislider -->
+    <link type="text/css" rel="stylesheet" href="css/nouislider.min.css" />
+
+    <!-- Font Awesome Icon -->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+
+    <!-- Custom stlylesheet -->
+    <link type="text/css" rel="stylesheet" href="css/style.css" />
+
+    <style>
+        .carousel-image {
+            width: 100%;
+            height: auto;
+            max-width: 300px;
+            max-height: 450px;
+            object-fit: cover;
+        }
+
+        @media (max-width: 768px) {
+            .carousel-only-mobile {
+                display: block;
+            }
+
+            .carousel-only-desktop {
+                display: none;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .carousel-only-mobile {
+                display: none;
+            }
+
+            .carousel-only-desktop {
+                display: block;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+        <div class="container px-4 px-lg-5">
+            <a class="navbar-brand" href="#!">White Label Marker</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                <!-- Botões de login e meus ingressos (para mobile) -->
+                <form class="d-flex d-lg-none mb-2">
+                    <button class="btn btn-outline-dark me-2 shadow-lg " type="submit">
+                        <i class="bi bi-person-fill"></i>
+                        Login
+                    </button>
+
+                    <button class="btn btn-outline-dark" type="submit">
+                        <i class="bi bi-ticket me-1"></i>
+                        Meus ingressos
+                        <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                    </button>
+                </form>
+
+                <!-- Barra de pesquisa de eventos -->
+                <form class="d-flex">
+                    <input class="form-control me-1" type="search" placeholder="Pesquisar eventos" aria-label="Search">
+                    <button class="btn btn-outline-dark me-2" type="button">
+                        <i class="bi bi-search me-1"></i>
+                    </button>
+
+                    <!-- Input nativo de data -->
+                    <input class="form-control me-4" type="date" class="form-control" id="datePicker">
+
+                </form>
+
+                <!-- Botões de login e meus ingressos (para desktop) -->
+                <form class="d-none d-lg-flex ms-auto">
+                    <button class="btn btn-outline-dark me-3" type="submit">
+                        <i class="bi bi-person-fill"></i>
+                        Login
+                    </button>
+
+                    <button class="btn btn-outline-dark ms-auto" type="submit">
+                        <i class="bi bi-ticket"></i> <!-- Arrumar isso aqui -->
+                        Meus ingressos
+                        <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                    </button>
+
+                    </button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+
+
+
+    <!-- Header -->
+    <header class="bg-dark py-1 shadow-lg">
+        <div class="container px-4 px-lg- my-4 text-center">
+            <img src="/img/ESEETGAkOKEyHRWTnJVfyScsHD3PuZHZ0fcbSmAb.png" alt="Banner 1" class="w-100"
+                style="border-radius: 10px; height: 200px;">
+        </div>
+    </header>
+
+
+
+    <!-- Section dos produtos -->
+    <section class="py-5">
+
+        <div class="container">
+            <div class="row justify-content-center">
+                <h5 class="fw-bolder">Nome do evento</h5>
+                <p style="font-size: smaller;"> Recipe-PE <br>
+                    Av. Beira rio</p>
+
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="btn btn-outline-light ms-auto" style="background-color: #212529; padding: 8px; border-radius: 10px;">
+                                <button class="btn btn-outline-light me-3 text-white" onclick="mostrarIngressos()">Ingressos</button>
+                                <button class="btn btn-outline-light me-3 text-white" onclick="mostrarInformacoes()">Informações</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="container" id="ingressos-container" style="display: none;">
+                        <div class="row justify-content-center">
+                            <div class="btn btn-outline-light ms-auto" style="background-color: #212529; padding: 8px; border-radius: 10px;">
+                                <i class="fas fa-calendar text-white" style="font-size: smaller;"></i> <label class="text-white" style="font-size: smaller;">19 de janeiro</label>
+                                <i class="fas fa-clock text-white" style="font-size: smaller;"></i> <label class="text-white" style="font-size: smaller;">19:00</label> <br>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="container" id="area-unica-container" style="display: none;">
+                        <div class="row justify-content-center">
+                            <div class="p-4 btn-outline-light ms-auto" style="background-color: #212529; padding: 8px; border-radius: 10px;">
+                                <h5 class="fw-bolder text-white">Área única</h5>
+                                <div class="p-4 ms-auto" style="background-color: #ffffff; padding: 8px; border-radius: 10px;">
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    
+            
+                    
+                    <p>Unissex | 1° Lote</p>
+                    <p>Valor + Taxa. Pague em até 12x</p>
+                    <p>Ícone de informação: Kit camisa + copo incluso</p>
+                </div>
+                <div>
+                    <button onclick="alterarQuantidade(-1)">-</button>
+                    <span id="quantidade">1</span>
+                    <button onclick="alterarQuantidade(1)">+</button>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <script>
+            function mostrarIngressos() {
+                document.getElementById('ingressos-container').style.display = 'block';
+                document.getElementById('area-unica-container').style.display = 'block';  // Adicionado para ocultar o outro container
+            }
+        
+            function mostrarInformacoes() {
+                document.getElementById('ingressos-container').style.display = 'none';
+                document.getElementById('area-unica-container').style.display = 'none';  // Adicionado para mostrar o outro container
+            }
+        
+            function alterarQuantidade(valor) {
+                var quantidadeElemento = document.getElementById('quantidade');
+                var quantidadeAtual = parseInt(quantidadeElemento.innerText);
+                quantidadeAtual += valor;
+                quantidadeElemento.innerText = Math.max(1, quantidadeAtual);
+            }
+        </script>
+        
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="footer">
+        <div class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="footer">
+                            <h3 class="footer-title">Localização</h3>
+                            <ul class="footer-links">
+                                <li><a href="#" class="custom-link"><i class="fa fa-map-marker"></i>Rua ABC, 123, Parque
+                                        Does not Exist, São Paulo</a></li>
+                                <li><a href="#" class="custom-link"><i class="fa fa-phone"></i>+55 (12) 3456-7890</a>
+                                </li>
+                                <li><a href="#" class="custom-link"><i class="fas fa-envelope"></i>teste@example.com</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="footer">
+                            <h3 class="footer-title">Filtros</h3>
+                            <ul class="footer-links">
+                                <li><a href="#" class="custom-link">Todos eventos</a></li>
+                                <li><a href="#" class="custom-link">Festival</a></li>
+                                <li><a href="#" class="custom-link">Carnaval</a></li>
+                                <li><a href="#" class="custom-link">Outros filtros</a></li>
+                                <li><a href="#" class="custom-link">Outros filtros</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+
+
+                    <div class="col">
+                        <div class="footer">
+                            <h3 class="footer-title">Informação</h3>
+                            <ul class="footer-links">
+                                <li><a href="#" class="custom-link">Sobre nós</a></li>
+                                <li><a href="#" class="custom-link">Contato</a></li>
+                                <li><a href="#" class="custom-link">Politicas de privacidade</a></li>
+                                <li><a href="#" class="custom-link">Site oficial</a></li>
+                                <li><a href="#" class="custom-link">Termos e condições</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="footer">
+                            <h3 class="footer-title">Navegação</h3>
+                            <ul class="footer-links">
+                                <li><a href="#" class="custom-link">Minha Conta</a></li>
+                                <li><a href="#" class="custom-link">Meus ingressos</a></li>
+                                <li><a href="#" class="custom-link">FAQ</a></li>
+                                <li><a href="#" class="custom-link">Ajuda</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- bottom footer -->
+        <div id="bottom-footer" class="section">
+            <div class="container">
+                <!-- row -->
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <ul class="footer-payments">
+                            <li><a href="#"><i class="fa fa-cc-visa"></i></a></li>
+                            <li><a href="#"><i class="fa fa-credit-card"></i></a></li>
+                            <li><a href="#"><i class="fa fa-cc-paypal"></i></a></li>
+                            <li><a href="#"><i class="fa fa-cc-mastercard"></i></a></li>
+                            <li><a href="#"><i class="fa fa-cc-discover"></i></a></li>
+                            <li><a href="#"><i class="fa fa-cc-amex"></i></a></li>
+                        </ul>
+                        <span class="copyright">
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            Copyright &copy;
+                            <script>document.write(new Date().getFullYear());</script> Todos direitos reservados por
+                            Marco Nascimento
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        </span>
+                    </div>
+                </div>
+                <!-- /row -->
+            </div>
+            <!-- /container -->
+        </div>
+        <!-- /bottom footer -->
+    </footer>
+    <!-- /FOOTER -->
+
+
+
+
+    <!-- Footer
+    <footer class="py-5 bg-dark">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; Marco Nascimento 2024</p>
+        </div>
+    </footer> -->
+
+
+
+
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+    <!-- jQuery Plugins -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/nouislider.min.js"></script>
+    <script src="js/jquery.zoom.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
