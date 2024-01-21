@@ -69,7 +69,7 @@
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
         <div class="container px-4 px-lg-5">
-            <a class="navbar-brand" href="#!">White Label Marker</a>
+            <a class="navbar-brand" href="index.html">White Label Marker</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
@@ -82,9 +82,11 @@
                         Login
                     </button>
 
-                    <button class="btn btn-outline-dark" type="submit">
-                        <i class="bi bi-ticket me-1"></i>
-                        Meus ingressos
+                    <button class="btn btn-outline-dark" type="button" onclick="window.location.href='login.html'">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-ticket-perforated-fill" viewBox="0 0 16 16">
+                            <path d="M0 4.5A1.5 1.5 0 0 1 1.5 3h13A1.5 1.5 0 0 1 16 4.5V6a.5.5 0 0 1-.5.5 1.5 1.5 0 0 0 0 3 .5.5 0 0 1 .5.5v1.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 11.5V10a.5.5 0 0 1 .5-.5 1.5 1.5 0 1 0 0-3A.5.5 0 0 1 0 6zm4-1v1h1v-1zm1 3v-1H4v1zm7 0v-1h-1v1zm-1-2h1v-1h-1zm-6 3H4v1h1zm7 1v-1h-1v1zm-7 1H4v1h1zm7 1v-1h-1v1zm-8 1v1h1v-1zm7 1h1v-1h-1z"/>
+                          </svg>
+                        Ingressos
                         <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
                     </button>
                 </form>
@@ -103,14 +105,16 @@
 
                 <!-- Botões de login e meus ingressos (para desktop) -->
                 <form class="d-none d-lg-flex ms-auto">
-                    <button class="btn btn-outline-dark me-3" type="submit">
+                    <button class="btn btn-outline-dark me-3" type="button" onclick="window.location.href='login.html'">
                         <i class="bi bi-person-fill"></i>
                         Login
                     </button>
 
                     <button class="btn btn-outline-dark ms-auto" type="submit">
-                        <i class="bi bi-ticket"></i> <!-- Arrumar isso aqui -->
-                        Meus ingressos
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-ticket-perforated-fill" viewBox="0 0 16 16">
+                            <path d="M0 4.5A1.5 1.5 0 0 1 1.5 3h13A1.5 1.5 0 0 1 16 4.5V6a.5.5 0 0 1-.5.5 1.5 1.5 0 0 0 0 3 .5.5 0 0 1 .5.5v1.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 11.5V10a.5.5 0 0 1 .5-.5 1.5 1.5 0 1 0 0-3A.5.5 0 0 1 0 6zm4-1v1h1v-1zm1 3v-1H4v1zm7 0v-1h-1v1zm-1-2h1v-1h-1zm-6 3H4v1h1zm7 1v-1h-1v1zm-7 1H4v1h1zm7 1v-1h-1v1zm-8 1v1h1v-1zm7 1h1v-1h-1z"/>
+                          </svg>
+                        Ingressos
                         <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
                     </button>
 
@@ -142,47 +146,57 @@
                 <p style="font-size: smaller;"> Recipe-PE <br>
                     Av. Beira rio</p>
 
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="btn btn-outline-light ms-auto" style="background-color: #212529; padding: 8px; border-radius: 10px;">
-                                <button class="btn btn-outline-light me-3 text-white" onclick="mostrarIngressos()">Ingressos</button>
-                                <button class="btn btn-outline-light me-3 text-white" onclick="mostrarInformacoes()">Informações</button>
-                            </div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="btn btn-outline-light ms-auto"
+                            style="background-color: #ffffff; padding: 8px; border-radius: 10px;">
+                            <button class="btn btn-outline-dark me-3" onclick="mostrarIngressos()">Ingressos</button>
+                            <button class="btn btn-outline-dark me-3"
+                                onclick="mostrarInformacoes()">Informações</button>
                         </div>
                     </div>
-                    
-                    <div class="container" id="ingressos-container" style="display: none;">
-                        <div class="row justify-content-center">
-                            <div class="btn btn-outline-light ms-auto" style="background-color: #212529; padding: 8px; border-radius: 10px;">
-                                <i class="fas fa-calendar text-white" style="font-size: smaller;"></i> <label class="text-white" style="font-size: smaller;">19 de janeiro</label>
-                                <i class="fas fa-clock text-white" style="font-size: smaller;"></i> <label class="text-white" style="font-size: smaller;">19:00</label> <br>
-                            </div>
+                </div>
+
+                <div class="container" id="ingressos-container" style="display: none;">
+                    <div class="row justify-content-center">
+                        <div class="btn btn-outline-light ms-auto"
+                            style="background-color: #212529; padding: 8px; border-radius: 10px;">
+                            <i class="fas fa-calendar text-white" style="font-size: smaller;"></i> <label
+                                class="text-white" style="font-size: smaller;">19 de janeiro</label>
+                            <i class="fas fa-clock text-white" style="font-size: smaller;"></i> <label
+                                class="text-white" style="font-size: smaller;">19:00</label> <br>
                         </div>
                     </div>
-                    
-                    <div class="container" id="area-unica-container" style="display: none;">
-                        <div class="row justify-content-center">
-                            <div class="p-4 btn-outline-light ms-auto" style="background-color: #212529; padding: 8px; border-radius: 10px;">
-                                <h5 class="fw-bolder text-white">Área única</h5>
-                                <div class="p-4 ms-auto" style="background-color: #ffffff; padding: 8px; border-radius: 10px;">
+                </div>
+
+                <div class="container" id="area-unica-container" style="display: none;">
+                    <div class="row justify-content-center">
+                        <div class="p-4 btn-outline-light ms-auto"
+                            style="background-color: #212529; padding: 8px; border-radius: 10px;">
+                            <h5 class="fw-bolder text-white">Área única</h5>
+                            <div class="p-4 ms-auto"
+                                style="background-color: #ffffff; padding: 8px; border-radius: 10px;">
+                                <p style="font-size: smaller;">Unissex | 1° Lote</p>
+                                <p style="font-size: smaller;">R$ 60,00</p>
+                                <p style="font-size: smaller; color: green;">Valor + Taxa. Pague em até 12x</p>
+                                <p><i class="fas fa-info text-green"></i> Kit camisa + copo incluso</p>
+
+                                <div>
+                                    <button onclick="alterarQuantidade(-1)">-</button>
+                                    <span id="quantidade">1</span>
+                                    <button onclick="alterarQuantidade(1)">+</button>
                                 </div>
 
                             </div>
+
                         </div>
                     </div>
-                    
-            
-                    
-                    <p>Unissex | 1° Lote</p>
-                    <p>Valor + Taxa. Pague em até 12x</p>
-                    <p>Ícone de informação: Kit camisa + copo incluso</p>
                 </div>
-                <div>
-                    <button onclick="alterarQuantidade(-1)">-</button>
-                    <span id="quantidade">1</span>
-                    <button onclick="alterarQuantidade(1)">+</button>
-                </div>
+
+
             </div>
+
+        </div>
         </div>
         </div>
 
@@ -191,12 +205,12 @@
                 document.getElementById('ingressos-container').style.display = 'block';
                 document.getElementById('area-unica-container').style.display = 'block';  // Adicionado para ocultar o outro container
             }
-        
+
             function mostrarInformacoes() {
                 document.getElementById('ingressos-container').style.display = 'none';
                 document.getElementById('area-unica-container').style.display = 'none';  // Adicionado para mostrar o outro container
             }
-        
+
             function alterarQuantidade(valor) {
                 var quantidadeElemento = document.getElementById('quantidade');
                 var quantidadeAtual = parseInt(quantidadeElemento.innerText);
@@ -204,7 +218,7 @@
                 quantidadeElemento.innerText = Math.max(1, quantidadeAtual);
             }
         </script>
-        
+
     </section>
 
     <!-- FOOTER -->
