@@ -10851,3 +10851,25 @@ textarea.form-control-lg {
   /* Adicione outros estilos de hover conforme necessário */
 }
 
+.sticky-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #f8f9fa; /* Cor de fundo da sua div sticky */
+  padding: 10px;
+  box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil na borda superior */
+  display: none; /* Inicialmente, a div está oculta */
+}
+
+.sticky-content {
+  max-width: 1200px; /* Largura máxima da sua div */
+  margin: 0 auto; /* Centralizar a div */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sticky-show {
+  display: block !important; /* Para forçar a exibição da div ao rolar a página */
+}

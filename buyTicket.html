@@ -149,37 +149,37 @@
                 <p style="font-size: smaller;"> Recipe-PE <br>
                     Av. Beira rio</p>
 
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="btn btn-outline-light ms-auto"
-                            style="background-color: #ffffff; padding: 8px; border-radius: 10px;">
-                            <button class="btn btn-outline-dark me-3" onclick="mostrarIngressos()">Ingressos</button>
-                            <button class="btn btn-outline-dark me-3"
-                                onclick="mostrarInformacoes()">Informações</button>
+                    <div class="container" style="margin-bottom: 20px;">
+                        <div class="row justify-content-center">
+                            <div class="btn btn-outline-light ms-auto"
+                                style="background-color: #ffffff; padding: 8px; border-radius: 10px; margin-bottom: 20px;">
+                                <button class="btn btn-outline-dark me-3" onclick="mostrarIngressos()">Ingressos</button>
+                                <button class="btn btn-outline-dark me-3"
+                                    onclick="mostrarInformacoes()">Informações</button>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="container" id="ingressos-container" style="display: none;">
-                    <div class="row justify-content-center">
-                        <div class="btn btn-outline-light ms-auto"
-                            style="background-color: #212529; padding: 8px; border-radius: 10px;">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <i class="fas fa-calendar text-white" style="font-size: smaller;"></i>
-                                    <label class="text-white" style="font-size: smaller;">19 de janeiro</label>
-                                </div>
-                                <div>
-                                    <i class="fas fa-clock text-white" style="font-size: smaller;"></i>
-                                    <label class="text-white" style="font-size: smaller;">19:00</label>
+                    
+                    <div class="container" id="ingressos-container" style="display: none;">
+                        <div class="row justify-content-center">
+                            <div class="btn btn-outline-light ms-auto"
+                                style="background-color: #212529; padding: 8px; border-radius: 10px;">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <i class="fas fa-calendar text-white" style="font-size: smaller;"></i>
+                                        <label class="text-white" style="font-size: smaller;">19 de janeiro</label>
+                                    </div>
+                                    <div>
+                                        <i class="fas fa-clock text-white" style="font-size: smaller;"></i>
+                                        <label class="text-white" style="font-size: smaller;">19:00</label>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
 
-                <div class="container shadow-lg" id="area-unica-container" style="display: none;">
+                <div class="container shadow-lg" id="area-unica-container" style="display: none; margin-top: 20px;">
                     <div class="row justify-content-center shadow-lg">
                         <div class="p-4 btn-outline-light ms-auto d-flex align-items-center"
                             style="background-color: #212529; padding: 8px; border-radius: 10px 10px 0 0;">
@@ -192,19 +192,19 @@
 
                         </div>
                         <div id="area-unica-details" class="p-4 ms-auto"
-                            style="background-color: #bababa; padding: 8px; border-radius: 0 0 10px 10px; border: 1px solid black;">
+                            style="background-color: #dedede; padding: 8px; border-radius: 0 0 10px 10px; border: 1px solid black;">
 
                             <div class="d-flex justify-content-between align-items-center mb-3">
                                 <ul style="list-style-type: none; padding: 0;">
                                     <li>Unissex | 1° Lote</li>
-                                    <li>R$ 60,00</li>
+                                    <li id="preco-unitario">R$ 60,00</li>
                                     <li style="color: green;">Valor + Taxa. Pague em até 12x</li>
                                     <li><i class="fas fa-info"></i> Kit camisa + copo incluso</li>
                                 </ul>
 
                                 <div class="d-flex align-items-center">
                                     <button onclick="alterarQuantidade(-1)" class="btn btn-secondary">-</button>
-                                    <span id="quantidade" class="mx-2">1</span>
+                                    <span id="quantidade" class="mx-2">0</span>
                                     <button onclick="alterarQuantidade(1)" class="btn btn-secondary">+</button>
                                 </div>
                             </div>
@@ -255,11 +255,57 @@
                 var quantidadeElemento = document.getElementById('quantidade');
                 var quantidadeAtual = parseInt(quantidadeElemento.innerText);
                 quantidadeAtual += valor;
-                quantidadeElemento.innerText = Math.max(1, quantidadeAtual);
+
+                var precoUnitarioElemento = document.getElementById('preco-unitario');
+                var precoUnitarioTexto = precoUnitarioElemento.innerText.replace('R$', '').replace(',', '.');
+                var precoUnitario = parseFloat(precoUnitarioTexto);
+
+                var precoTotal = precoUnitario * quantidadeAtual;
+
+                if (precoTotal < 0) {
+                    alert('O preço total não pode ser negativo!');
+                    return;
+                }
+
+                quantidadeElemento.innerText = Math.max(0, quantidadeAtual);
+                var precoTotalElemento = document.getElementById('total-price');
+                precoTotalElemento.innerText = 'R$ ' + precoTotal.toLocaleString('pt-BR', { minimumFractionDigits: 2 });
             }
         </script>
 
     </section>
+
+
+    <section id="sticky-section" class="py-3"
+        style="position: fixed; bottom: 0; width: 100%; background-color: #dedede; z-index: 9999;">
+        <div class="container">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-md-6 text-center">
+                    <ul class="mb-0 text-center">
+                        <li>0 Ingressos por</li>
+                        <li id="total-price" style="color: black; font-size: 30px;">R$ 0,00</li>
+                        <li style="color: green;">Pague em até 12x</li>
+                    </ul>
+                </div>
+                <div class="col-md-6 text-center">
+                    <button class="btn btn-outline-dark ms-auto rounded-pill btn-lg"
+                        style="width: 200px; background-color: #fff; border-width: 2px;">Comprar</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var stickySection = document.getElementById("sticky-section");
+
+            window.onscroll = function () {
+                stickySection.style.bottom = "0";
+            };
+        });
+    </script>
+
+
 
     <!-- FOOTER -->
     <footer id="footer">
@@ -354,6 +400,7 @@
         <!-- /bottom footer -->
     </footer>
     <!-- /FOOTER -->
+
 
 
     <!-- Bootstrap core JS-->
