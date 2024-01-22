@@ -162,41 +162,48 @@
 
                 <div class="container" id="ingressos-container" style="display: none;">
                     <div class="row justify-content-center">
-                        <div class="btn btn-outline-light ms-auto"
-                            style="background-color: #212529; padding: 8px; border-radius: 10px;">
-                            <i class="fas fa-calendar text-white" style="font-size: smaller;"></i> <label
-                                class="text-white" style="font-size: smaller;">19 de janeiro</label>
-                            <i class="fas fa-clock text-white" style="font-size: smaller;"></i> <label
-                                class="text-white" style="font-size: smaller;">19:00</label> <br>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="container" id="area-unica-container" style="display: none;">
-                    <div class="row justify-content-center">
-                        <div class="p-4 btn-outline-light ms-auto"
-                            style="background-color: #212529; padding: 8px; border-radius: 10px;">
-                            <h5 class="fw-bolder text-white">Área única</h5>
-                            <div class="p-4 ms-auto"
-                                style="background-color: #ffffff; padding: 8px; border-radius: 10px;">
-                                <p style="font-size: smaller;">Unissex | 1° Lote</p>
-                                <p style="font-size: smaller;">R$ 60,00</p>
-                                <p style="font-size: smaller; color: green;">Valor + Taxa. Pague em até 12x</p>
-                                <p><i class="fas fa-info text-green"></i> Kit camisa + copo incluso</p>
-
+                        <div class="btn btn-outline-light ms-auto" style="background-color: #212529; padding: 8px; border-radius: 10px;">
+                            <div class="d-flex justify-content-between align-items-center">
                                 <div>
-                                    <button onclick="alterarQuantidade(-1)">-</button>
-                                    <span id="quantidade">1</span>
-                                    <button onclick="alterarQuantidade(1)">+</button>
+                                    <i class="fas fa-calendar text-white" style="font-size: smaller;"></i>
+                                    <label class="text-white" style="font-size: smaller;">19 de janeiro</label>
                                 </div>
-
+                                <div>
+                                    <i class="fas fa-clock text-white" style="font-size: smaller;"></i>
+                                    <label class="text-white" style="font-size: smaller;">19:00</label>
+                                </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
+                
 
-
+                <div class="container shadow-lg" id="area-unica-container" style="display: none;">
+                    <div class="row justify-content-center shadow-lg">
+                        <div class="p-4 btn-outline-light ms-auto"
+                            style="background-color: #212529; padding: 8px; border-radius: 10px 10px 0 0;">
+                            <h5 class="fw-bolder text-white">Área única</h5>
+                        </div>
+                        <div class="p-4 ms-auto"
+                            style="background-color: #bababa; padding: 8px; border-radius: 0 0 10px 10px; border: 1px solid black;">
+                
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <ul style="list-style-type: none; padding: 0;">
+                                    <li>Unissex | 1° Lote</li>
+                                    <li>R$ 60,00</li>
+                                    <li style="color: green;">Valor + Taxa. Pague em até 12x</li>
+                                    <li><i class="fas fa-info"></i> Kit camisa + copo incluso</li>
+                                </ul>
+                
+                                <div class="d-flex align-items-center">
+                                    <button onclick="alterarQuantidade(-1)" class="btn btn-secondary">-</button>
+                                    <span id="quantidade" class="mx-2">1</span>
+                                    <button onclick="alterarQuantidade(1)" class="btn btn-secondary">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>                
             </div>
 
         </div>
@@ -317,18 +324,6 @@
         <!-- /bottom footer -->
     </footer>
     <!-- /FOOTER -->
-
-
-
-
-    <!-- Footer
-    <footer class="py-5 bg-dark">
-        <div class="container">
-            <p class="m-0 text-center text-white">Copyright &copy; Marco Nascimento 2024</p>
-        </div>
-    </footer> -->
-
-
 
 
     <!-- Bootstrap core JS-->
