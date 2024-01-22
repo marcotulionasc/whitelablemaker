@@ -92,22 +92,12 @@
                     </button>
                 </form>
 
-                <!-- Barra de pesquisa de eventos -->
-                <form class="d-flex">
-                    <input class="form-control me-1" type="search" placeholder="Pesquisar eventos" aria-label="Search">
-                    <!-- Input nativo de data -->
-                    <input class="form-control me-2" type="date" class="form-control" id="datePicker">
-
-                    <button class="btn btn-outline-dark me-2" type="button">
-                        <i class="bi bi-search me-1"></i>
-                    </button>
-                </form>
-
                 <!-- Botões de login e meus ingressos (para desktop) -->
                 <form class="d-none d-lg-flex ms-auto">
-                    <button class="btn btn-outline-dark me-3" type="submit">
-                        <i class="bi bi-person-fill"></i>
-                        Login
+                    
+                    <button class="btn btn-outline-dark me-3" type="button" onclick="window.location.href='index.html'">
+                        <i class="bi bi-house-fill"></i>
+                        Início
                     </button>
 
                     <button class="btn btn-outline-dark ms-auto" type="submit">
@@ -156,6 +146,9 @@
                         </form>
                         <form action="#" class="signup">
                             <div class="field">
+                                <input type="text" placeholder="Nome completo" required>
+                            </div>
+                            <div class="field">
                                 <input type="text" placeholder="Email" required>
                             </div>
                             <div class="field">
@@ -166,7 +159,7 @@
                             </div>
                             <div class="field custom-btn">
                                 <div class="btn-layer"></div>
-                                <input type="submit" value="Signup">
+                                <input type="submit" value="Cadastra-se">
                             </div>
                         </form>
                     </div>
