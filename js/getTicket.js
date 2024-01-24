@@ -50,9 +50,13 @@ function alterarQuantidade(valor, id, tipoIngresso) {
     var precoUnitarioTexto = precoUnitarioElemento.innerText.replace('R$', '').replace(',', '.');
     var precoUnitario = parseFloat(precoUnitarioTexto);
 
-    // Obter a quantidade do outro tipo de ingresso
+    // Obter a quantidade e o preço do outro tipo de ingresso
     var outroId = id === 'quantidade1' ? 'quantidade2' : 'quantidade1';
     var outraQuantidade = parseInt(document.getElementById(outroId).textContent);
+    var outroTipoIngresso = id === 'quantidade1' ? 'frontstage' : 'pista';
+    var outroPrecoUnitarioElemento = document.getElementById('preco-' + outroTipoIngresso);
+    var outroPrecoUnitarioTexto = outroPrecoUnitarioElemento.innerText.replace('R$', '').replace(',', '.');
+    var outroPrecoUnitario = parseFloat(outroPrecoUnitarioTexto);
 
     // Verificar se a soma total de ingressos ultrapassa 4
     var totalIngressos = quantidadeAtual + outraQuantidade;
@@ -68,7 +72,7 @@ function alterarQuantidade(valor, id, tipoIngresso) {
     var precoTotalElemento = document.getElementById('total-price');
     var totalIngressosElemento = document.getElementById('total-ingressos');
 
-    var precoTotal = (precoUnitario * quantidadeAtual) + (precoUnitario * outraQuantidade);
+    var precoTotal = (precoUnitario * quantidadeAtual) + (outroPrecoUnitario * outraQuantidade);
     precoTotalElemento.innerText = 'R$ ' + precoTotal.toLocaleString('pt-BR', { minimumFractionDigits: 2 });
 
     if (totalIngressos === 1 || totalIngressos === 0) {
