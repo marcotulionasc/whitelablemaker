@@ -1,4 +1,4 @@
-var scale = 0.3;
+var scale = 1;
 var container = document.getElementById('zoomContainer');
 var zoomInButton = document.getElementById('zoomIn');
 var zoomOutButton = document.getElementById('zoomOut');
