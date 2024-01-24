@@ -62,10 +62,10 @@
             }
         }
     </style>
-
+    <script src="js/getTicket.js"></script>
 </head>
 
-<body onload="mostrarIngressos()"> <!-- Revisar essa linha. Comportamento esperado é mostrarIngressos -->
+<body> 
 
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
@@ -207,9 +207,9 @@
                                 </ul>
 
                                 <div class="d-flex align-items-center">
-                                    <button onclick="alterarQuantidade(-1)" class="btn btn-secondary">-</button>
-                                    <span id="quantidade" class="mx-2">0</span>
-                                    <button onclick="alterarQuantidade(1)" class="btn btn-secondary">+</button>
+                                    <button onclick="alterarQuantidade(-1, 'quantidade1')" class="btn btn-secondary">-</button>
+                                    <span id="quantidade1" class="mx-2">0</span>
+                                    <button onclick="alterarQuantidade(1, 'quantidade1')" class="btn btn-secondary">+</button>
                                 </div>
                             </div>
                         </div>
@@ -240,9 +240,9 @@
                                 </ul>
 
                                 <div class="d-flex align-items-center">
-                                    <button onclick="alterarQuantidade(-1)" class="btn btn-secondary">-</button>
-                                    <span id="quantidade" class="mx-2">0</span>
-                                    <button onclick="alterarQuantidade(1)" class="btn btn-secondary">+</button>
+                                    <button onclick="alterarQuantidade(-1, 'quantidade2')" class="btn btn-secondary">-</button>
+                                    <span id="quantidade2" class="mx-2">0</span>
+                                    <button onclick="alterarQuantidade(1, 'quantidade2')" class="btn btn-secondary">+</button>
                                 </div>
                             </div>
                         </div>
@@ -253,62 +253,7 @@
         </div>
         </div>
         </div>
-
-
-        <script>
-            function mostrarIngressos() {
-                document.getElementById('ingressos-container').style.display = 'block';
-                document.getElementById('area-unica-container').style.display = 'block';
-                document.getElementById('informacoes-container').style.display = 'none';  // Ocultar as informações quando os ingressos são mostrados
-            }
-
-            function mostrarInformacoes() {
-                document.getElementById('ingressos-container').style.display = 'none';
-                document.getElementById('area-unica-container').style.display = 'none';
-                document.getElementById('informacoes-container').style.display = 'block';  // Mostrar as informações quando o botão "Informações" é clicado
-            }
-
-            var areaUnicaVisivel = false;
-
-            function toggleIngressos(id) {
-                var details = document.getElementById(id);
-                if (details.style.display === "none") {
-                    details.style.display = "block";
-                } else {
-                    details.style.display = "none";
-                }
-            }
-
-            function alterarQuantidade(valor) {
-                var quantidadeElemento = document.getElementById('quantidade');
-                var quantidadeAtual = parseInt(quantidadeElemento.innerText);
-                quantidadeAtual += valor;
-
-                var precoUnitarioElemento = document.getElementById('preco-unitario');
-                var precoUnitarioTexto = precoUnitarioElemento.innerText.replace('R$', '').replace(',', '.');
-                var precoUnitario = parseFloat(precoUnitarioTexto);
-
-                var precoTotal = precoUnitario * quantidadeAtual;
-
-                if (precoTotal < 0) {
-                    alert('O preço total não pode ser negativo!');
-                    return;
-                }
-
-                quantidadeElemento.innerText = Math.max(0, quantidadeAtual);
-                var precoTotalElemento = document.getElementById('total-price');
-                var totalIngressosElemento = document.getElementById('total-ingressos');
-                precoTotalElemento.innerText = 'R$ ' + precoTotal.toLocaleString('pt-BR', { minimumFractionDigits: 2 });
-
-                // Alterar o texto do elemento 'total-ingressos' com base na quantidade atual
-                if (quantidadeAtual === 1 || quantidadeAtual === 0) {
-                    totalIngressosElemento.innerText = quantidadeAtual + ' Ingresso por';
-                } else {
-                    totalIngressosElemento.innerText = quantidadeAtual + ' Ingressos por';
-                }
-            }
-        </script>
-
+   
         <div class="responsive-container" id="zoomContainer">
             <div class="image-wrapper">
                 <img src="img//maps/expoDomPedro-plant.png" alt="Planta Expo Dom Pedro">
@@ -319,9 +264,9 @@
         </div>
         <button id="zoomIn">+</button>
         <button id="zoomOut">-</button>
-
-
     </section>
+
+    
 
 
     <!-- Adicione este novo container para as informações -->
@@ -470,6 +415,8 @@
     <script src="js/app.js"></script>
     <script src="js/map.js"></script>
     <script src="js/countTicket.js"></script>
+    <script src="js/getTicket.js"></script>
+    <script src="js/zoom.js"></script>
 </body>
 
 </html>
