@@ -345,35 +345,28 @@
         </div>
     </div>
 
-    <!-- Sticky section -->
     <section id="sticky-section" class="py-2"
-        style="position: fixed; bottom: 0; width: 100%; background-color: #dedede; z-index: 9999; border-top: 5px solid #212529;">
-        <div class="container">
-            <div class="row justify-content-center align-items-center">
-                <div class="col-md-6 text-center">
-                    <ul class="mb-0 text-center">
-                        <li id="total-ingressos">0 Ingresso por</li>
-                        <li id="total-price" style="color: black; font-size: 30px;">R$ 0,00</li>
-                        <li style="color: green;"><strong>Pague em até 12x</strong></li>
-                    </ul>
-                </div>
-                <div class="col-md-6 text-center">
-                    <button class="btn btn-outline-dark ms-auto rounded-pill btn-lg"
-                        style="width: 200px; background-color: #fff; border-width: 3px;">Comprar</button>
-                </div>
+    style="position: fixed; bottom: 0; width: 100%; background-color: #dedede; z-index: 9999; border-top: 5px solid #212529;">
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+            <!-- Contador -->
+            <div class="col-12 text-center" style="background-color: gray; color: white; margin-bottom: 10px; border-radius: 10px;">
+                <strong id="counter"></strong>
+            </div>
+            <div class="col-md-6 text-center">
+                <ul class="mb-0 text-center">
+                    <li id="total-ingressos">0 Ingresso por</li>
+                    <li id="total-price" style="color: black; font-size: 30px;">R$ 0,00</li>
+                    <li style="color: green;"><strong>Pague em até 12x</strong></li>
+                </ul>
+            </div>
+            <div class="col-md-6 text-center">
+                <button class="btn btn-outline-dark ms-auto rounded-pill btn-lg"
+                    style="width: 200px; background-color: #fff; border-width: 3px;">Comprar</button>
             </div>
         </div>
-    </section>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            var stickySection = document.getElementById("sticky-section");
-
-            window.onscroll = function () {
-                stickySection.style.bottom = "0";
-            };
-        });
-    </script>
+    </div>
+</section>
 
     <!-- FOOTER -->
     <footer id="footer">
@@ -476,6 +469,7 @@
     <script src="js/main.js"></script>
     <script src="js/app.js"></script>
     <script src="js/map.js"></script>
+    <script src="js/countTicket.js"></script>
 </body>
 
 </html>
