@@ -42,4 +42,13 @@ var seconds = Math.floor((timeRemaining % (60 * 1000)) / 1000);
 var counter = document.getElementById('counter');
 counter.textContent = 'Sua reserva irá expirar em ' + minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
 }, 1000);
-};
+
+// Altera a cor de fundo do contador com base no tempo restante
+if (minutes < 1) {
+    counter.style.backgroundColor = 'red';
+} else if (minutes < 5) {
+    counter.style.backgroundColor = 'yellow';
+} else {
+    counter.style.backgroundColor = 'transparent';
+}
+}, 1000;

@@ -1,6 +1,6 @@
 // Suponha que você tenha as seguintes variáveis
-var pricePista = document.querySelector('.preco-pista').textContent;
-var priceFrontstage = document.querySelector('.preco-frontstage').textContent;
+var pricePista = "R$ 100,00";
+var priceFrontstage = "R$ 120,00";
 var capacity = 100;
 var available = "sim";
 
@@ -10,7 +10,18 @@ var frontstageDiv = document.querySelector('.frontstage-div');
 
 // Crie uma função para mostrar as informações quando o mouse passar sobre a div
 function showInfo(event) {
-    var info = "Valor do ingresso: R$" + price + "\nCapacidade: " + capacity + "\nDisponível: " + available;
+    var price, divClass;
+
+    // Determina o preço e a classe com base no elemento de destino
+    if (event.target.classList.contains('pista-div')) {
+        price = pricePista;
+        divClass = 'pista-div';
+    } else if (event.target.classList.contains('frontstage-div')) {
+        price = priceFrontstage;
+        divClass = 'frontstage-div';
+    }
+
+    var info = "Valor do ingresso: " + price + "\nCapacidade: " + capacity + "\nDisponível: " + available;
 
     // Criação do elemento div com estilos melhorados
     var pseudoElement = document.createElement('div');
@@ -29,7 +40,7 @@ function showInfo(event) {
     var valueStyle = document.createElement('span');
     valueStyle.style.color = 'green';
     valueStyle.style.fontWeight = 'bold';
-    valueStyle.textContent = "Valor do ingresso: R$" + price;
+    valueStyle.textContent = "Valor do ingresso: " + price;
 
     // Adiciona estilos específicos para a capacidade
     var capacityStyle = document.createElement('span');
@@ -41,9 +52,9 @@ function showInfo(event) {
     pseudoElement.appendChild(capacityStyle);
 
     // Verifica a classe da div para determinar a posição
-    if (event.target.classList.contains('pista-div')) {
+    if (divClass === 'pista-div') {
         pseudoElement.style.right = '100%'; // Para div com classe pista-div
-    } else if (event.target.classList.contains('frontstage-div')) {
+    } else if (divClass === 'frontstage-div') {
         pseudoElement.style.left = '100%'; // Para div com classe frontstage-div
     }
 
