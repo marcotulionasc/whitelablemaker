@@ -143,40 +143,40 @@
 
 
     <!-- Section dos produtos -->
-    <section class="py-5">
+    <section class="py-2">
 
-        <div class="container">
+        <div class="container mt-3">
             <div class="row justify-content-center">
                 <h5 class="fw-bolder">Nome do evento</h5>
                 <p style="font-size: smaller;"> Recipe-PE <br>
                     Av. Beira rio</p>
 
-                <div class="container" style="margin-bottom: 20px;">
+                <div class="container" style="margin-bottom: 10px;">
                     <div class="row justify-content-center">
                         <div class="btn btn-outline-light ms-auto"
-                            style="background-color: #ffffff; padding: 8px; border-radius: 10px; margin-bottom: 20px;">
-                            <button class="btn btn-outline-dark me-3" onclick="billingProfilePix()">PIX</button>
-                            <button class="btn btn-outline-dark me-3" onclick="billingProfileCredit()">Crédito</button>
+                            style="background-color: #ffffff; padding: 8px; border-radius: 10px; margin-bottom: 10px;">
+                            <button class="btn btn-outline-dark me-3 mb-3" onclick="billingProfilePix()">PIX</button>
+                            <button class="btn btn-outline-dark me-3 mb-3" onclick="billingProfileCredit()">Crédito</button>
                         </div>
                     </div>
                 </div>
     </section>
 
-    <section id="pix-section" class="py-5" style="display: none;">
-        <div class="container">
+    <section id="pix-section" class="py-2" style="display: none;">
+        <div class="container" style="display: flex; flex-direction: column; align-items: center;">
             <h5 class="fw-bolder">Pagamento via PIX</h5>
             <div class="form-inner">
                 <form action="#" class="login">
                     <div class="field">
-                        <input type="text" placeholder="CPF" required>
+                        <input type="text" placeholder="CPF" required style="max-width: 500px; width: 100%;">
                     </div>
                     <div class="field">
-                        <input type="text" placeholder="Email" required>
+                        <input type="text" placeholder="Email" required style="max-width: 500px; width: 100%;">
                     </div>
                     <div class="field">
-                        <input type="date" placeholder="Senha" required>
+                        <input type="date" placeholder="Senha" required style="max-width: 500px; width: 100%;">
                     </div>
-                    <div class="field custom-btn">
+                    <div class="field custom-btn" style="max-width: 500px; width: 100%;">
                         <div class="btn-layer"></div>
                         <input type="submit" value="Próximo">
                     </div>
@@ -185,21 +185,21 @@
         </div>
     </section>
 
-    <section id="credito-section" class="py-5" style="display: none;">
-        <div class="container">
+    <section id="credito-section" class="py-2" style="display: none;">
+        <div class="container" style="display: flex; flex-direction: column; align-items: center;">
             <h5 class="fw-bolder">Pagamento via Crédito</h5>
             <div class="form-inner">
                 <form action="#" class="login">
                     <div class="field">
-                        <input type="text" placeholder="CPF" required>
+                        <input type="text" placeholder="CPF" required style="max-width: 500px; width: 100%;">
                     </div>
                     <div class="field">
-                        <input type="text" placeholder="Email" required>
+                        <input type="text" placeholder="Email" required style="max-width: 500px; width: 100%;">
                     </div>
                     <div class="field">
-                        <input type="date" placeholder="Senha" required>
+                        <input type="date" placeholder="Senha" required style="max-width: 500px; width: 100%;">
                     </div>
-                    <div class="field custom-btn">
+                    <div class="field custom-btn" style="max-width: 500px; width: 100%;">
                         <div class="btn-layer"></div>
                         <input type="submit" value="Próximo">
                     </div>
@@ -207,6 +207,8 @@
             </div>
         </div>
     </section>
+
+    <div class="p-4"></div>
 
     <section id="sticky-section" class="py-2"
         style="position: fixed; bottom: 0; width: 100%; background-color: #dedede; z-index: 9999; border-top: 5px solid #212529;">
