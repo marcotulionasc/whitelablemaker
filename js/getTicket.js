@@ -32,14 +32,21 @@ function toggleIngressos(id) {
     }
 }
 
-function alterarQuantidade(valor, id) {
+function alterarQuantidade(valor, id, tipoIngresso) {
     var quantidadeElemento = document.getElementById(id);
     var quantidadeAtual = parseInt(quantidadeElemento.textContent) + valor;
 
     // Restrição para não permitir uma quantidade negativa
     quantidadeAtual = Math.max(0, quantidadeAtual);
 
-    var precoUnitarioElemento = document.getElementById('preco-unitario');
+    // Obter o preço unitário correto com base no tipo de ingresso
+    var precoUnitarioElemento;
+    if (tipoIngresso === 'pista') {
+        precoUnitarioElemento = document.getElementById('preco-pista');
+    } else if (tipoIngresso === 'frontstage') {
+        precoUnitarioElemento = document.getElementById('preco-frontstage');
+    }
+
     var precoUnitarioTexto = precoUnitarioElemento.innerText.replace('R$', '').replace(',', '.');
     var precoUnitario = parseFloat(precoUnitarioTexto);
 

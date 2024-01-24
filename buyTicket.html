@@ -200,16 +200,16 @@
                                 <ul style="list-style-type: none; padding: 0;">
                                     <li style="font-size: small;">Classificação: Maiores de 16 anos</li>
                                     <li>Unissex | 1° Lote</li>
-                                    <li id="preco-unitario">R$ 60,00</li>
+                                    <li id="preco-pista">R$ 100,00</li>
                                     <li style="color: green;">Valor + Taxa. Pague em até 12x</li>
                                     <li><i class="fas fa-info-circle" style="color: green;"></i> Kit camisa + copo
                                         incluso</li>
                                 </ul>
 
                                 <div class="d-flex align-items-center">
-                                    <button onclick="alterarQuantidade(-1, 'quantidade1')" class="btn btn-secondary">-</button>
+                                    <button onclick="alterarQuantidade(-1, 'quantidade1', 'pista')" class="btn btn-secondary">-</button>
                                     <span id="quantidade1" class="mx-2">0</span>
-                                    <button onclick="alterarQuantidade(1, 'quantidade1')" class="btn btn-secondary">+</button>
+                                    <button onclick="alterarQuantidade(1, 'quantidade1', 'frontstage')" class="btn btn-secondary">+</button>
                                 </div>
                             </div>
                         </div>
@@ -233,16 +233,16 @@
                                 <ul style="list-style-type: none; padding: 0;">
                                     <li style="font-size: small;">Classificação: Maiores de 16 anos</li>
                                     <li>Unissex | 1° Lote</li>
-                                    <li id="preco-unitario">R$ 60,00</li>
+                                    <li id="preco-frontstage">R$ 120,00</li>
                                     <li style="color: green;">Valor + Taxa. Pague em até 12x</li>
                                     <li><i class="fas fa-info-circle" style="color: green;"></i> Kit camisa + copo
                                         incluso</li>
                                 </ul>
 
                                 <div class="d-flex align-items-center">
-                                    <button onclick="alterarQuantidade(-1, 'quantidade2')" class="btn btn-secondary">-</button>
+                                    <button onclick="alterarQuantidade(-1, 'quantidade2', 'pista')" class="btn btn-secondary">-</button>
                                     <span id="quantidade2" class="mx-2">0</span>
-                                    <button onclick="alterarQuantidade(1, 'quantidade2')" class="btn btn-secondary">+</button>
+                                    <button onclick="alterarQuantidade(1, 'quantidade2', 'frontstage')" class="btn btn-secondary">+</button>
                                 </div>
                             </div>
                         </div>
@@ -257,8 +257,8 @@
         <div class="responsive-container" id="zoomContainer">
             <div class="image-wrapper">
                 <img src="img//maps/expoDomPedro-plant.png" alt="Planta Expo Dom Pedro">
-                <div class="pista-div"></div>
-                <div class="frontstage-div"></div>
+                <div class="pista-div" onclick="alterarQuantidade(1, 'quantidade1', 'pista')"></div>
+                <div class="frontstage-div" onclick="alterarQuantidade(1, 'quantidade2', 'frontstage')"></div>
 
             </div>
         </div>

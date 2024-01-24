@@ -1,7 +1,8 @@
 // Suponha que você tenha as seguintes variáveis
-var price = 100;
-var capacity = 200;
-var available = "Sim";
+var pricePista = document.querySelector('.preco-pista').textContent;
+var priceFrontstage = document.querySelector('.preco-frontstage').textContent;
+var capacity = 100;
+var available = "sim";
 
 // Selecione os elementos
 var pistaDiv = document.querySelector('.pista-div');
