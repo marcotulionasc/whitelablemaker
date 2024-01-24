@@ -1,0 +1,147 @@
+.responsive-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Isso aplicará estilos diferentes se a largura da tela for 600px ou menos */
+@media (max-width: 600px) {
+    .responsive-container {
+        flex-direction: column; /* Isso fará com que os itens do flexbox sejam empilhados verticalmente */
+        height: auto; /* Isso permitirá que o container cresça para acomodar seu conteúdo */
+        padding: 20px; /* Isso adicionará algum espaço ao redor do conteúdo */
+    }
+}
+
+img {
+    width: 600px;
+    height: 600px;
+    margin-right: 10px;
+    border: 5px solid #000;
+}
+
+.image-wrapper {
+    position: relative;
+}
+
+.pista-div {
+    position: absolute;
+    top: 52%;
+    left: 24%;
+    bottom: 50%;
+    right: 40%;
+    transform: translate(-50%, -50%);
+    max-width: calc(8 * 40px);
+}
+
+.frontstage-div {
+    position: absolute;
+    top: 49%;
+    left: 64%;
+    bottom: 58%;
+    right: 24%;
+    transform: translate(-50%, -50%);
+}
+
+.pista-div {
+    width: 300px; /* Ajuste para o tamanho desejado */
+    height: 430px; /* Ajuste para o tamanho desejado */
+    border: 3px solid #fff; /* Bordas brancas */
+    background-color: rgba(103, 2, 120, 0.4); /* Fundo roxo claro com 40% de transparência */
+}
+.frontstage-div {
+    width: 195px; /* Ajuste para o tamanho desejado */
+    height: 396px; /* Ajuste para o tamanho desejado */
+    border: 3px solid #fff; /* Bordas brancas */
+    background-color: rgba(9, 25, 147, 0.4); /* Fundo roxo claro com 40% de transparência */
+}
+.pista-div, .frontstage-div {
+    transition: transform 0.3s ease-in-out, border-color 0.3s ease-in-out; /* Adicione border-color à transição */
+    
+}
+
+.pista-div:hover{
+    transform: translate(-50%, -50%) scale(1.05);
+    cursor: pointer;
+    border-color: rgba(103, 2, 120, 0.4); /* Fundo roxo claro com 40% de transparência */
+}
+
+.frontstage-div:hover {
+    transform: translate(-50%, -50%) scale(1.05);
+    cursor: pointer;
+    border-color: rgba(9, 25, 147, 0.4); /* Fundo roxo claro com 40% de transparência */
+}
+
+#zoomIn, #zoomOut {
+    position: fixed;
+    left: 450px;
+    font-size: 2em;
+    padding: 5px;
+    cursor: pointer;
+    width: 50px; /* Define a largura dos botões */
+    height: 50px; /* Define a altura dos botões */
+    text-align: center; /* Centraliza o texto dos botões */
+    line-height: 50px; /* Alinha verticalmente o texto dos botões */
+    border-radius: 20%; /* Arredonda os botões */
+    background-color: rgba(23, 22, 22, 0.7); /* Fundo preto com 50% de transparência */
+    color: #fff; /* Cor do texto dos botões */
+    transition: background-color 0.3s ease-in-out; /* Adiciona transição ao fundo dos botões */
+    
+}
+
+#zoomOut {
+    top: 180px; /* Ajusta a posição do botão de zoom out para acomodar o tamanho aumentado do botão */
+}
+
+#zoomIn {
+    top: 120px;
+}
+
+/* Estilos para telas maiores que 600px */
+@media only screen and (min-width: 600px) {
+    #zoomIn, #zoomOut {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        font-size: 1em;
+        padding: 5px;
+        cursor: pointer;
+        width: 50px;
+        height: 50px;
+        text-align: center;
+        line-height: 50px;
+    }
+
+    #zoomOut {
+        top: 80px;
+    }
+
+    #zoomIn {
+        top: 20px;
+    }
+}
+
+/* Estilos para telas menores que 600px */
+@media only screen and (max-width: 600px) {
+    #zoomIn, #zoomOut {
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        font-size: 0.8em;
+        padding: 3px;
+        cursor: pointer;
+        width: 30px;
+        height: 30px;
+        text-align: center;
+        line-height: 30px;
+    }
+
+    #zoomOut {
+        top: 50px;
+    }
+
+    #zoomIn {
+        top: 10px;
+    }
+}

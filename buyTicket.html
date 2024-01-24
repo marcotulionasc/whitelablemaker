@@ -31,6 +31,7 @@
 
     <!-- Custom stlylesheet -->
     <link type="text/css" rel="stylesheet" href="css/style.css" />
+    <link type="text/css" rel="stylesheet" href="css/map.css" />
 
     <style>
         .carousel-image {
@@ -180,18 +181,19 @@
 
 
                 <div class="container shadow-lg" id="area-unica-container" style="display: none; margin-top: 20px;">
-                    <div class="row justify-content-center shadow-lg">
+                    <div class="row justify-content-center shadow-lg" style="margin-bottom: 20px;">
                         <div class="p-4 btn-outline-light ms-auto d-flex align-items-center"
                             style="background-color: #212529; padding: 8px; border-radius: 10px 10px 0 0;">
-                            <h5 class="fw-bolder text-white">Área única </h5>
+                            <h5 class="fw-bolder text-white">Pista </h5>
                             <i id="seta-baixo-icon" class="fas fa-chevron-down text-white ms-auto"
-                                style="margin-left: 10px;" onclick="toggleIngressos()"></i>
+                                style="margin-left: 10px;" onclick="toggleIngressos('pista-details')"></i>
                             <i id="seta-cima-icon" class="fas fa-chevron-up text-white ms-auto"
-                                style="margin-left: 10px; display: none;" onclick="toggleIngressos()"></i>
+                                style="margin-left: 10px; display: none;"
+                                onclick="toggleIngressos('pista-details')"></i>
 
 
                         </div>
-                        <div id="area-unica-details" class="p-4 ms-auto"
+                        <div id="pista-details" class="p-4 ms-auto"
                             style="background-color: #dedede; padding: 8px; border-radius: 0 0 10px 10px; border: 1px solid black;">
 
                             <div class="d-flex justify-content-between align-items-center mb-3">
@@ -212,6 +214,40 @@
                             </div>
                         </div>
                     </div>
+                    <div class="row justify-content-center shadow-lg">
+                        <div class="p-4 btn-outline-light ms-auto d-flex align-items-center"
+                            style="background-color: #212529; padding: 8px; border-radius: 10px 10px 0 0;">
+                            <h5 class="fw-bolder text-white">Front stage</h5>
+                            <i id="seta-baixo-icon" class="fas fa-chevron-down text-white ms-auto"
+                                style="margin-left: 10px;" onclick="toggleIngressos('front-stage-details')"></i>
+                            <i id="seta-cima-icon" class="fas fa-chevron-up text-white ms-auto"
+                                style="margin-left: 10px; display: none;"
+                                onclick="toggleIngressos('front-stage-details')"></i>
+
+
+                        </div>
+                        <div id="front-stage-details" class="p-4 ms-auto"
+                            style="background-color: #dedede; padding: 8px; border-radius: 0 0 10px 10px; border: 1px solid black;">
+
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <ul style="list-style-type: none; padding: 0;">
+                                    <li style="font-size: small;">Classificação: Maiores de 16 anos</li>
+                                    <li>Unissex | 1° Lote</li>
+                                    <li id="preco-unitario">R$ 60,00</li>
+                                    <li style="color: green;">Valor + Taxa. Pague em até 12x</li>
+                                    <li><i class="fas fa-info-circle" style="color: green;"></i> Kit camisa + copo
+                                        incluso</li>
+                                </ul>
+
+                                <div class="d-flex align-items-center">
+                                    <button onclick="alterarQuantidade(-1)" class="btn btn-secondary">-</button>
+                                    <span id="quantidade" class="mx-2">0</span>
+                                    <button onclick="alterarQuantidade(1)" class="btn btn-secondary">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -234,24 +270,13 @@
 
             var areaUnicaVisivel = false;
 
-            function toggleIngressos() {
-                var areaUnicaDetails = document.getElementById('area-unica-details');
-                var setaBaixoIcon = document.getElementById('seta-baixo-icon');
-                var setaCimaIcon = document.getElementById('seta-cima-icon');
-
-                var areaUnicaDisplay = window.getComputedStyle(areaUnicaDetails).getPropertyValue('display');
-
-                if (areaUnicaDisplay === 'block') {
-                    areaUnicaDetails.style.display = 'none';
-                    setaBaixoIcon.style.display = 'block';
-                    setaCimaIcon.style.display = 'none';
+            function toggleIngressos(id) {
+                var details = document.getElementById(id);
+                if (details.style.display === "none") {
+                    details.style.display = "block";
                 } else {
-                    areaUnicaDetails.style.display = 'block';
-                    setaBaixoIcon.style.display = 'none';
-                    setaCimaIcon.style.display = 'block';
+                    details.style.display = "none";
                 }
-
-                areaUnicaVisivel = !areaUnicaVisivel;
             }
 
             function alterarQuantidade(valor) {
@@ -284,6 +309,18 @@
             }
         </script>
 
+        <div class="responsive-container" id="zoomContainer">
+            <div class="image-wrapper">
+                <img src="img//maps/expoDomPedro-plant.png" alt="Planta Expo Dom Pedro">
+                <div class="pista-div"></div>
+                <div class="frontstage-div"></div>
+
+            </div>
+        </div>
+        <button id="zoomIn">+</button>
+        <button id="zoomOut">-</button>
+
+
     </section>
 
 
@@ -296,7 +333,8 @@
                     <h5 class="fw-bolder text-white">Informações sobre este evento!</h5>
                 </div>
             </div>
-            <p style="margin-top: 20px;">O bloco foi criado por amigos moradores da Av. Beira Rio, com cunho carnavalesco e ecológico em defesa
+            <p style="margin-top: 20px;">O bloco foi criado por amigos moradores da Av. Beira Rio, com cunho
+                carnavalesco e ecológico em defesa
                 das Capivaras,
                 esses animais são moradores das margens do Rio Capibaribe a muito tempo, que recebeu esse nome em
                 homenagem as capivaras, que habitavam em grandes quantidades,
@@ -412,11 +450,11 @@
                             <li><a href="#"><i class="fa fa-cc-amex"></i></a></li>
                         </ul> -->
                         <span class="copyright">
-                             
+
                             Copyright &copy;
                             <script>document.write(new Date().getFullYear());</script> Todos direitos reservados por
                             Marco Nascimento
-                             
+
                         </span>
                     </div>
                 </div>
@@ -436,5 +474,8 @@
     <script src="js/nouislider.min.js"></script>
     <script src="js/jquery.zoom.min.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/map.js"></script>
 </body>
+
 </html>
