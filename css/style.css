@@ -2251,6 +2251,10 @@ textarea.input {
   background-color: #13d405;
 }
 
-
+.custom-logo {
+  /* Adicione seus estilos personalizados aqui. Por exemplo: */
+  border: 2px solid #000;
+  padding: 10px;
+}
 
 
