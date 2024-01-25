@@ -152,170 +152,28 @@
                 <p style="font-size: smaller;"> Recipe-PE <br>
                     Av. Beira rio</p>
 
-                <div class="container" style="margin-bottom: 20px;">
-                    <div class="row justify-content-center">
-                        <div class="btn btn-outline-light ms-auto"
-                            style="background-color: #ffffff; padding: 8px; border-radius: 10px; margin-bottom: 20px;">
-                            <button class="btn btn-outline-dark me-3" onclick="mostrarIngressos()">Ingressos</button>
-                            <button class="btn btn-outline-dark me-3"
-                                onclick="mostrarInformacoes()">Informações</button>
+                    <div class="container" style="display: flex; flex-direction: column; align-items: left;">
+                        <div class="form-inner">
+                            <form action="#" class="login">
+                                <div class="field">
+                                    <input type="text" placeholder="Nome completo" required
+                                        style="max-width: 500px; width: 100%;">
+                                </div>
+                                <div class="field">
+                                    <input type="text" placeholder="Email" required style="max-width: 500px; width: 100%;">
+                                </div>
+                                <div class="field custom-btn" style="max-width: 500px; width: 100%;">
+                                    <div class="btn-layer"></div>
+                                    <input type="submit" value="Cadastrar na lista amiga">
+                                </div>
+                            </form>
                         </div>
                     </div>
-                </div>
-
-                <div class="container" id="ingressos-container" style="display: none;">
-                    <div class="row justify-content-center">
-                        <div class="btn btn-outline-light ms-auto"
-                            style="background-color: #212529; padding: 8px; border-radius: 10px;">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <i class="fas fa-calendar text-white" style="font-size: smaller;"></i>
-                                    <label class="text-white" style="font-size: smaller;">28 de janeiro</label>
-                                </div>
-                                <div>
-                                    <i class="fas fa-clock text-white" style="font-size: smaller;"></i>
-                                    <label class="text-white" style="font-size: smaller;">Domingo às 18h</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="container shadow-lg" id="area-unica-container" style="display: none; margin-top: 20px;">
-                    <div class="row justify-content-center shadow-lg" style="margin-bottom: 20px;">
-                        <div class="p-4 btn-outline-light ms-auto d-flex align-items-center"
-                            style="background-color: #212529; padding: 8px; border-radius: 10px 10px 0 0;">
-                            <h5 class="fw-bolder text-white">Pista </h5>
-                            <i id="seta-baixo-icon" class="fas fa-chevron-down text-white ms-auto"
-                                style="margin-left: 10px;" onclick="toggleIngressos('pista-details')"></i>
-                            <i id="seta-cima-icon" class="fas fa-chevron-up text-white ms-auto"
-                                style="margin-left: 10px; display: none;"
-                                onclick="toggleIngressos('pista-details')"></i>
-
-
-                        </div>
-                        <div id="pista-details" class="p-4 ms-auto"
-                            style="background-color: #dedede; padding: 8px; border-radius: 0 0 10px 10px; border: 1px solid black;">
-
-                            <div class="d-flex justify-content-between align-items-center mb-3">
-                                <ul style="list-style-type: none; padding: 0;">
-                                    <li style="font-size: small;">Classificação: Maiores de 16 anos</li>
-                                    <li>Unissex | 1° Lote</li>
-                                    <li id="preco-pista">R$ 100,00</li>
-                                    <li style="color: green;">Valor + Taxa. Pague em até 12x</li>
-                                    <li><i class="fas fa-info-circle" style="color: green;"></i> Kit camisa + copo
-                                        incluso</li>
-                                </ul>
-
-                                <div class="d-flex align-items-center">
-                                    <button onclick="alterarQuantidade(-1, 'quantidade1', 'pista')" class="btn btn-secondary">-</button>
-                                    <span id="quantidade1" class="mx-2">0</span>
-                                    <button onclick="alterarQuantidade(1, 'quantidade1', 'frontstage')" class="btn btn-secondary">+</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row justify-content-center shadow-lg">
-                        <div class="p-4 btn-outline-light ms-auto d-flex align-items-center"
-                            style="background-color: #212529; padding: 8px; border-radius: 10px 10px 0 0;">
-                            <h5 class="fw-bolder text-white">Front stage</h5>
-                            <i id="seta-baixo-icon" class="fas fa-chevron-down text-white ms-auto"
-                                style="margin-left: 10px;" onclick="toggleIngressos('front-stage-details')"></i>
-                            <i id="seta-cima-icon" class="fas fa-chevron-up text-white ms-auto"
-                                style="margin-left: 10px; display: none;"
-                                onclick="toggleIngressos('front-stage-details')"></i>
-
-
-                        </div>
-                        <div id="front-stage-details" class="p-4 ms-auto"
-                            style="background-color: #dedede; padding: 8px; border-radius: 0 0 10px 10px; border: 1px solid black;">
-
-                            <div class="d-flex justify-content-between align-items-center mb-3">
-                                <ul style="list-style-type: none; padding: 0;">
-                                    <li style="font-size: small;">Classificação: Maiores de 16 anos</li>
-                                    <li>Unissex | 1° Lote</li>
-                                    <li id="preco-frontstage">R$ 120,00</li>
-                                    <li style="color: green;">Valor + Taxa. Pague em até 12x</li>
-                                    <li><i class="fas fa-info-circle" style="color: green;"></i> Kit camisa + copo
-                                        incluso</li>
-                                </ul>
-
-                                <div class="d-flex align-items-center">
-                                    <button onclick="alterarQuantidade(-1, 'quantidade2', 'pista')" class="btn btn-secondary">-</button>
-                                    <span id="quantidade2" class="mx-2">0</span>
-                                    <button onclick="alterarQuantidade(1, 'quantidade2', 'frontstage')" class="btn btn-secondary">+</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
             </div>
         </div>
         </div>
         </div>
-   
-        <div class="responsive-container" id="zoomContainer">
-            <div class="image-wrapper">
-                <img class="image-component"src="img//maps/expoDomPedro-plant.png" alt="Planta Expo Dom Pedro">
-                <div class="pista-div" onclick="alterarQuantidade(1, 'quantidade1', 'pista')"></div>
-                <div class="frontstage-div" onclick="alterarQuantidade(1, 'quantidade2', 'frontstage')"></div>
-
-            </div>
-        </div>
-        <button id="zoomIn">+</button>
-        <button id="zoomOut">-</button>
     </section>
-
-    
-
-
-    <!-- Adicione este novo container para as informações -->
-    <div class="container" id="informacoes-container" style="display: none;">
-        <div class="row justify-content-center">
-            <div class="btn btn-outline-light ms-auto"
-                style="background-color: #212529; padding: 8px; border-radius: 10px;">
-                <div class="d-flex justify-content-between align-items-center">
-                    <h5 class="fw-bolder text-white">Informações sobre este evento!</h5>
-                </div>
-            </div>
-            <p style="margin-top: 20px;">O bloco foi criado por amigos moradores da Av. Beira Rio, com cunho
-                carnavalesco e ecológico em defesa
-                das Capivaras,
-                esses animais são moradores das margens do Rio Capibaribe a muito tempo, que recebeu esse nome em
-                homenagem as capivaras, que habitavam em grandes quantidades,
-                esse será o primeiro ano de desfile do bloco, que pretende realizar a festa com 02 trios elétricos
-                e um espaço kids para as crianças e um espaço indoor na quadra ao lado da praça Jose Sales Filho onde o
-                desfile se encerrará,
-                teremos também campanhas de conscientização para preservação do meio ambiente e das Capivaras</p>
-
-            </div>
-        </div>
-    </div>
-
-    <section id="sticky-section" class="py-2"
-    style="position: fixed; bottom: 0; width: 100%; background-color: #dedede; z-index: 9999; border-top: 5px solid #212529;">
-    <div class="container">
-        <div class="row justify-content-center align-items-center">
-            <!-- Contador -->
-            <div class="col-12 text-center" style="background-color: gray; color: white; margin-bottom: 10px; border-radius: 10px;">
-                <strong id="counter"></strong>
-            </div>
-            <div class="col-md-6 text-center">
-                <ul class="mb-0 text-center">
-                    <li id="total-ingressos">0 Ingresso por</li>
-                    <li id="total-price" style="color: black; font-size: 30px;">R$ 0,00</li>
-                    <li style="color: green;"><strong>Pague em até 12x</strong></li>
-                </ul>
-            </div>
-            <div class="col-md-6 text-center">
-                <button onclick="window.location.href = 'paymentWay.html';" class="btn btn-outline-dark ms-auto rounded-pill btn-lg"
-                    style="width: 200px; background-color: #fff; border-width: 3px;">Comprar</button>
-            </div>
-        </div>
-    </div>
-</section>
 
     <!-- FOOTER -->
     <footer id="footer">
