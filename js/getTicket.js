@@ -32,52 +32,59 @@ function toggleIngressos(id) {
     }
 }
 
-function alterarQuantidade(valor, id, tipoIngresso) {
-    var quantidadeElemento = document.getElementById(id);
-    var quantidadeAtual = parseInt(quantidadeElemento.textContent) + valor;
+function alterarQuantidade(quantidade, elementoQuantidade, tipoIngresso) {
+    var quantidadeElemento = document.getElementById(elementoQuantidade);
+    var quantidadeAtual = parseInt(quantidadeElemento.innerText);
 
-    // Restrição para não permitir uma quantidade negativa
-    quantidadeAtual = Math.max(0, quantidadeAtual);
+    var totalIngressosElemento = document.getElementById('total-ingressos');
+    var totalIngressos = parseInt(totalIngressosElemento.innerText);
 
-    // Obter o preço unitário correto com base no tipo de ingresso
-    var precoUnitarioElemento;
-    if (tipoIngresso === 'pista') {
-        precoUnitarioElemento = document.getElementById('preco-pista');
-    } else if (tipoIngresso === 'frontstage') {
-        precoUnitarioElemento = document.getElementById('preco-frontstage');
-    }
-
-    var precoUnitarioTexto = precoUnitarioElemento.innerText.replace('R$', '').replace(',', '.');
-    var precoUnitario = parseFloat(precoUnitarioTexto);
-
-    // Obter a quantidade e o preço do outro tipo de ingresso
-    var outroId = id === 'quantidade1' ? 'quantidade2' : 'quantidade1';
-    var outraQuantidade = parseInt(document.getElementById(outroId).textContent);
-    var outroTipoIngresso = id === 'quantidade1' ? 'frontstage' : 'pista';
-    var outroPrecoUnitarioElemento = document.getElementById('preco-' + outroTipoIngresso);
-    var outroPrecoUnitarioTexto = outroPrecoUnitarioElemento.innerText.replace('R$', '').replace(',', '.');
-    var outroPrecoUnitario = parseFloat(outroPrecoUnitarioTexto);
-
-    // Verificar se a soma total de ingressos ultrapassa 4
-    var totalIngressos = quantidadeAtual + outraQuantidade;
-    if (totalIngressos > 4) {
-        alert('Você não pode selecionar mais de 4 ingressos por pedido.');
+    if (quantidadeAtual + quantidade < 0) {
+        alert('A quantidade de ingressos não pode ser menor que 0.');
         return;
     }
 
-    // Atualizar a quantidade apenas se não ultrapassar o limite
+    quantidadeAtual += quantidade;
     quantidadeElemento.innerText = quantidadeAtual;
 
-    // Atualizar o preço total
-    var precoTotalElemento = document.getElementById('total-price');
-    var totalIngressosElemento = document.getElementById('total-ingressos');
+    totalIngressos += quantidade;
 
-    var precoTotal = (precoUnitario * quantidadeAtual) + (outroPrecoUnitario * outraQuantidade);
-    precoTotalElemento.innerText = 'R$ ' + precoTotal.toLocaleString('pt-BR', { minimumFractionDigits: 2 });
-
-    if (totalIngressos === 1 || totalIngressos === 0) {
-        totalIngressosElemento.innerText = totalIngressos + ' Ingresso por';
-    } else {
-        totalIngressosElemento.innerText = totalIngressos + ' Ingressos por';
+    if (totalIngressos > 4) {
+        alert('Você não pode selecionar mais de 4 ingressos por pedido.');
+        quantidadeElemento.innerText = quantidadeAtual - quantidade; // Revert the quantity if it exceeds the limit
+        return;
     }
+
+    totalIngressosElemento.innerText = (totalIngressos === 1 || totalIngressos === 0) ?
+        totalIngressos + ' Ingresso por' :
+        totalIngressos + ' Ingressos por';
+
+    // Atualizar o preço total na seção fixa (sticky section)
+
+    // Atualizar o preço total
+    atualizarTotalPrice();
 }
+
+function atualizarTotalPrice() {
+    var totalIngressos = 0;
+
+    // Obter os elementos e preços de cada tipo de ingresso dinamicamente
+    for (var i = 1; i <= 4; i++) {
+        var quantidade = parseInt(document.getElementById('quantidade' + i).innerText);
+        var precoTexto = document.getElementById('preco-' + (i === 1 ? 'pista-solidario' : i === 2 ? 'pista' : i === 3 ? 'frontstage-solidario' : 'frontstage')).innerText;
+
+        // Remover o 'R$ ' e converter para número
+        var preco = parseFloat(precoTexto.replace('R$ ', ''));
+
+        // Verificar se o preço é um número válido
+        if (!isNaN(preco)) {
+            totalIngressos += quantidade * preco;
+        }
+    }
+
+    // Atualizar o elemento de preço total
+    document.getElementById('total-price').innerText = 'R$ ' + totalIngressos.toLocaleString('pt-BR', { minimumFractionDigits: 2 });
+
+}
+
+

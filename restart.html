@@ -65,13 +65,14 @@
     <script src="js/getTicket.js"></script>
 </head>
 
-<body> 
+<body>
 
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
         <div class="container px-4 px-lg-5">
             <a class="navbar-brand" href="index.html">
-                <img src="img/logo/logo_brasuca-removebg-preview.png" alt="Logo" width="100" class="colored-logo" style="border-radius: 50%;">
+                <img src="img/logo/logo_brasuca-removebg-preview.png" alt="Logo" width="100" class="colored-logo"
+                    style="border-radius: 50%;">
                 <label style="color: #484848;">Brasuca</label>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -137,7 +138,8 @@
     <!-- Header -->
     <header class="bg-dark py-1 shadow-lg">
         <div class="container px-4 px-lg- my-4 text-center">
-            <img src="/img/events/Restartwebp.webp" alt="Banner 1" class="img-fluid" style="border-radius: 10px; max-height: 200px; max-width: 400px;">
+            <img src="/img/events/Restartwebp.webp" alt="Banner 1" class="img-fluid"
+                style="border-radius: 10px; max-height: 200px; max-width: 400px;">
         </div>
     </header>
 
@@ -186,7 +188,40 @@
                     <div class="row justify-content-center shadow-lg" style="margin-bottom: 20px;">
                         <div class="p-4 btn-outline-light ms-auto d-flex align-items-center"
                             style="background-color: #212529; padding: 8px; border-radius: 10px 10px 0 0;">
-                            <h5 class="fw-bolder text-white">Pista </h5>
+                            <h5 class="fw-bolder text-white">Pista Solidário </h5>
+                            <i id="seta-baixo-icon" class="fas fa-chevron-down text-white ms-auto"
+                                style="margin-left: 10px;" onclick="toggleIngressos('pista-solitario-details')"></i>
+                            <i id="seta-cima-icon" class="fas fa-chevron-up text-white ms-auto"
+                                style="margin-left: 10px; display: none;"
+                                onclick="toggleIngressos('pista-solitario-details')"></i>
+
+
+                        </div>
+                        <div id="pista-solitario-details" class="p-4 ms-auto"
+                            style="background-color: #dedede; padding: 8px; border-radius: 0 0 10px 10px; border: 1px solid black;">
+
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <ul style="list-style-type: none; padding: 0;">
+                                    <li style="font-size: small;">18 Anos - Menores de 18 Anos acompanhado pelo responsável legal. </li>
+                                    <li id="preco-pista-solidario">R$ 100,00 + Taxa</li>
+                                    <li style="color: green;">Pague em até 12x</li>
+                                    <!-- <li><i class="fas fa-info-circle" style="color: green;"></i> Kit camisa + copo incluso</li> -->
+                                </ul>
+
+                                <div class="d-flex align-items-center">
+                                    <button onclick="alterarQuantidade(-1, 'quantidade1', 'pista-solitario')"
+                                        class="btn btn-secondary">-</button>
+                                    <span id="quantidade1" class="mx-2">0</span>
+                                    <button onclick="alterarQuantidade(1, 'quantidade1', 'pista-solitario')"
+                                        class="btn btn-secondary">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center shadow-lg" style="margin-bottom: 20px;">
+                        <div class="p-4 btn-outline-light ms-auto d-flex align-items-center"
+                            style="background-color: #212529; padding: 8px; border-radius: 10px 10px 0 0;">
+                            <h5 class="fw-bolder text-white">Pista</h5>
                             <i id="seta-baixo-icon" class="fas fa-chevron-down text-white ms-auto"
                                 style="margin-left: 10px;" onclick="toggleIngressos('pista-details')"></i>
                             <i id="seta-cima-icon" class="fas fa-chevron-up text-white ms-auto"
@@ -200,51 +235,84 @@
 
                             <div class="d-flex justify-content-between align-items-center mb-3">
                                 <ul style="list-style-type: none; padding: 0;">
-                                    <li style="font-size: small;">Classificação: Maiores de 16 anos</li>
-                                    <li>Unissex | 1° Lote</li>
-                                    <li id="preco-pista">R$ 100,00</li>
-                                    <li style="color: green;">Valor + Taxa. Pague em até 12x</li>
-                                    <li><i class="fas fa-info-circle" style="color: green;"></i> Kit camisa + copo
-                                        incluso</li>
+                                    <li style="font-size: small;">18 Anos - Menores de 18 Anos acompanhado pelo responsável legal. </li>
+                                    <li id="preco-pista">R$ 80,00 + Taxa</li>
+                                    <li style="color: green;">Pague em até 12x</li>
+                                    <!-- <li><i class="fas fa-info-circle" style="color: green;"></i> Kit camisa + copo incluso</li> -->
                                 </ul>
 
                                 <div class="d-flex align-items-center">
-                                    <button onclick="alterarQuantidade(-1, 'quantidade1', 'pista')" class="btn btn-secondary">-</button>
-                                    <span id="quantidade1" class="mx-2">0</span>
-                                    <button onclick="alterarQuantidade(1, 'quantidade1', 'frontstage')" class="btn btn-secondary">+</button>
+                                    <button onclick="alterarQuantidade(-1, 'quantidade2', 'pista')"
+                                        class="btn btn-secondary">-</button>
+                                    <span id="quantidade2" class="mx-2">0</span>
+                                    <button onclick="alterarQuantidade(1, 'quantidade2', 'pista')"
+                                        class="btn btn-secondary">+</button>
                                 </div>
                             </div>
                         </div>
                     </div>
+
+                    <!-- Fronstage Solidário -->
+                    <div class="row justify-content-center shadow-lg" style="margin-bottom: 20px;">
+                        <div class="p-4 btn-outline-light ms-auto d-flex align-items-center"
+                            style="background-color: #212529; padding: 8px; border-radius: 10px 10px 0 0;">
+                            <h5 class="fw-bolder text-white">Frontstage Solidário</h5>
+                            <i id="seta-baixo-icon-frontstage-solidario" class="fas fa-chevron-down text-white ms-auto"
+                                style="margin-left: 10px;" onclick="toggleIngressos('frontstage-solidario-details')"></i>
+                            <i id="seta-cima-icon-frontstage-solidario" class="fas fa-chevron-up text-white ms-auto"
+                                style="margin-left: 10px; display: none;"
+                                onclick="toggleIngressos('frontstage-solidario-details')"></i>
+                        </div>
+                        <div id="frontstage-solidario-details" class="p-4 ms-auto"
+                            style="background-color: #dedede; padding: 8px; border-radius: 0 0 10px 10px; border: 1px solid black;">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <ul style="list-style-type: none; padding: 0;">
+                                    <li style="font-size: small;">18 Anos - Menores de 18 Anos acompanhado pelo responsável legal. </li>
+                                    <li id="preco-frontstage-solidario">R$ 160,00 + Taxa</li>
+                                    <li style="color: green;">Pague em até 12x</li>
+                                    <!-- <li><i class="fas fa-info-circle" style="color: green;"></i> Kit camisa + copo incluso</li> -->
+                                </ul>
+
+                                <div class="d-flex align-items-center">
+                                    <button onclick="alterarQuantidade(-1, 'quantidade3', 'frontstage-solidario')"
+                                        class="btn btn-secondary">-</button>
+                                    <span id="quantidade3" class="mx-2">0</span>
+                                    <button onclick="alterarQuantidade(1, 'quantidade3', 'frontstage-solidario')"
+                                        class="btn btn-secondary">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Frontstage -->
                     <div class="row justify-content-center shadow-lg">
                         <div class="p-4 btn-outline-light ms-auto d-flex align-items-center"
                             style="background-color: #212529; padding: 8px; border-radius: 10px 10px 0 0;">
-                            <h5 class="fw-bolder text-white">Front stage</h5>
-                            <i id="seta-baixo-icon" class="fas fa-chevron-down text-white ms-auto"
-                                style="margin-left: 10px;" onclick="toggleIngressos('front-stage-details')"></i>
-                            <i id="seta-cima-icon" class="fas fa-chevron-up text-white ms-auto"
+                            <h5 class="fw-bolder text-white">Frontstage</h5>
+                            <i id="seta-baixo-icon-frontstage" class="fas fa-chevron-down text-white ms-auto"
+                                style="margin-left: 10px;"
+                                onclick="toggleIngressos('frontstage-details')"></i>
+                            <i id="seta-cima-icon-frontstage" class="fas fa-chevron-up text-white ms-auto"
                                 style="margin-left: 10px; display: none;"
-                                onclick="toggleIngressos('front-stage-details')"></i>
-
-
+                                onclick="toggleIngressos('frontstage-details')"></i>
                         </div>
-                        <div id="front-stage-details" class="p-4 ms-auto"
+                        <div id="frontstage-details" class="p-4 ms-auto"
                             style="background-color: #dedede; padding: 8px; border-radius: 0 0 10px 10px; border: 1px solid black;">
-
                             <div class="d-flex justify-content-between align-items-center mb-3">
                                 <ul style="list-style-type: none; padding: 0;">
-                                    <li style="font-size: small;">Classificação: Maiores de 16 anos</li>
-                                    <li>Unissex | 1° Lote</li>
-                                    <li id="preco-frontstage">R$ 120,00</li>
-                                    <li style="color: green;">Valor + Taxa. Pague em até 12x</li>
+                                    <li style="font-size: small;">18 Anos - Menores de 18 Anos acompanhado pelo responsável legal. </li>
+                                    <li id="preco-frontstage">R$ 140,00 + Taxa</li>
+                                    <li style="color: green;">Pague em até 12x</li>
                                     <li><i class="fas fa-info-circle" style="color: green;"></i> Kit camisa + copo
                                         incluso</li>
                                 </ul>
 
                                 <div class="d-flex align-items-center">
-                                    <button onclick="alterarQuantidade(-1, 'quantidade2', 'pista')" class="btn btn-secondary">-</button>
-                                    <span id="quantidade2" class="mx-2">0</span>
-                                    <button onclick="alterarQuantidade(1, 'quantidade2', 'frontstage')" class="btn btn-secondary">+</button>
+                                    <button onclick="alterarQuantidade(-1, 'quantidade4', 'frontstage')"
+                                        class="btn btn-secondary">-</button>
+                                    <span id="quantidade4" class="mx-2">0</span>
+                                    <button onclick="alterarQuantidade(1, 'quantidade4', 'frontstage')"
+                                        class="btn btn-secondary">+</button>
                                 </div>
                             </div>
                         </div>
@@ -252,23 +320,23 @@
 
                 </div>
             </div>
+
         </div>
         </div>
         </div>
-   
+
         <div class="responsive-container" id="zoomContainer">
             <div class="image-wrapper">
-                <img class="image-component"src="img//maps/expoDomPedro-plant.png" alt="Planta Expo Dom Pedro">
-                <div class="pista-div" onclick="alterarQuantidade(1, 'quantidade1', 'pista')"></div>
-                <div class="frontstage-div" onclick="alterarQuantidade(1, 'quantidade2', 'frontstage')"></div>
-
+                <img class="image-component" src="img//maps/expoDomPedro-plant.png" alt="Planta Expo Dom Pedro">
+                <div class="pista-div"></div>
+                <div class="frontstage-div"></div>
             </div>
         </div>
         <button id="zoomIn">+</button>
         <button id="zoomOut">-</button>
     </section>
 
-    
+
 
 
     <!-- Adicione este novo container para as informações -->
@@ -290,32 +358,34 @@
                 desfile se encerrará,
                 teremos também campanhas de conscientização para preservação do meio ambiente e das Capivaras</p>
 
-            </div>
         </div>
+    </div>
     </div>
 
     <section id="sticky-section" class="py-2"
-    style="position: fixed; bottom: 0; width: 100%; background-color: #dedede; z-index: 9999; border-top: 5px solid #212529;">
-    <div class="container">
-        <div class="row justify-content-center align-items-center">
-            <!-- Contador -->
-            <div class="col-12 text-center" style="background-color: gray; color: white; margin-bottom: 10px; border-radius: 10px;">
-                <strong id="counter"></strong>
-            </div>
-            <div class="col-md-6 text-center">
-                <ul class="mb-0 text-center">
-                    <li id="total-ingressos">0 Ingresso por</li>
-                    <li id="total-price" style="color: black; font-size: 30px;">R$ 0,00</li>
-                    <li style="color: green;"><strong>Pague em até 12x</strong></li>
-                </ul>
-            </div>
-            <div class="col-md-6 text-center">
-                <button onclick="window.location.href = 'paymentWay.html';" class="btn btn-outline-dark ms-auto rounded-pill btn-lg"
-                    style="width: 200px; background-color: #fff; border-width: 3px;">Comprar</button>
+        style="position: fixed; bottom: 0; width: 100%; background-color: #dedede; z-index: 9999; border-top: 5px solid #212529;">
+        <div class="container">
+            <div class="row justify-content-center align-items-center">
+                <!-- Contador -->
+                <div class="col-12 text-center"
+                    style="background-color: gray; color: white; margin-bottom: 10px; border-radius: 10px;">
+                    <strong id="counter"></strong>
+                </div>
+                <div class="col-md-6 text-center">
+                    <ul class="mb-0 text-center">
+                        <li id="total-ingressos">0 Ingresso por</li>
+                        <li id="total-price" style="color: black; font-size: 30px;">R$ 0,00</li>
+                        <li style="color: green;"><strong>Pague em até 12x</strong></li>
+                    </ul>
+                </div>
+                <div class="col-md-6 text-center">
+                    <button onclick="window.location.href = 'paymentWay.html';"
+                        class="btn btn-outline-dark ms-auto rounded-pill btn-lg"
+                        style="width: 200px; background-color: #fff; border-width: 3px;">Comprar</button>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- FOOTER -->
     <footer id="footer">
