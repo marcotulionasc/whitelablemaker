@@ -30,7 +30,7 @@ if (timeRemaining <= 0) {
     document.getElementById('counter').textContent = 'Sua reserva expirou';
     alert('Sua sessão expirou. Você será redirecionado para a página inicial.');
     localStorage.removeItem('firstVisitTime'); // Zera o cronômetro
-    location.href = '/'; // Redireciona para a página inicial
+    location.href = 'index.php'; // Redireciona para a página inicial
     return;
 }
 

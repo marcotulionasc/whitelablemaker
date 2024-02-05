@@ -1,3 +1,22 @@
+<?php
+session_start();
+require_once('conn.php');
+
+$tenant_id = 1; // You need to set this value according to your application logic
+
+$sql = "SELECT * FROM Events WHERE tenant_id = ? AND events_active = 1";
+$stmt = $conn->prepare($sql);
+
+if (!$stmt) {
+    die("Erro na preparação da consulta: " . $conn->error);
+}
+
+$stmt->bind_param("i", $tenant_id);
+$stmt->execute();
+$result = $stmt->get_result();
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -17,7 +36,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
     <!-- Bootstrap -->
-    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
+    <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" />
 
     <!-- Slick -->
     <link type="text/css" rel="stylesheet" href="css/slick.css" />
@@ -70,7 +89,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
         <div class="container px-4 px-lg-5">
     
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="index.php">
                 <img src="img/logo/logo_brasuca-removebg-preview.png" alt="Logo" width="100" class="colored-logo" style="border-radius: 50%;">
             </a>
              
@@ -213,196 +232,39 @@
         </div>
 
         <div class="container px-4 px-lg-5 mt-5">
-            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-                <div class="col mb-5">
-                    <div class="card h-100 shadow-lg shadow-lg">
-                        <!-- Imagem evento-->
-                        <img class="card-img-top" src="img/events/forro-quinta-temporada-verao.png" alt="..." style="max-width: 450px; max-height: 300px;" />
-                        <!-- Detalhe do evento-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <h5 class="fw-bolder">FORRÓ DE QUINTA com Maria LUA Temporada de verão</h5>
-                                <i class="fas fa-calendar" style="font-size: smaller;"></i> <label
-                                    style="font-size: smaller;">25/01</label> <br>
-                                <i class="fas fa-map-marker-alt" style="font-size: smaller;"></i> <label
-                                    style="font-size: smaller;">Brasuca </label>
-                            </div>
-                        </div>
-                        <!-- Botão Compra-->
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="forro-de-quinta.html">Seu ingresso!</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col mb-5">
-                    <div class="card h-100 shadow-lg">
-                        <!-- Oferta badge
-                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Oferta
-                        </div> -->
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-4 row-cols-xl-4 justify-content-center">
+                        <?php while ($row = $result->fetch_assoc()) : ?>
+                            <div class="col mb-5">
+                                <div class="card h-100 shadow-lg shadow-lg">
+                                    <!-- Imagem evento
+                                    <input type="hidden" name="image_event" value="<?php echo $row['id_event']; ?>">-->
+                                    <img class="card-img-top" src="data:*/*;base64,<?php echo $row['image_event']; ?>" alt="..." style="max-width: 450px; max-height: 300px;" />
+                                    <!-- Detalhe do evento-->
+                                    <div class="card-body p-4">
+                                        <div class="text-center">
+                                            <h5 class="fw-bolder">
+                                                <?php echo $row['title']; ?>
+                                            </h5>
+                                            <i class="fas fa-calendar" style="font-size: smaller;"></i>
+                                            <label style="font-size: smaller;">
+                                                <?php echo $row['date_hour']; ?>
+                                            </label> <br>
 
-                        <!-- Imagem evento-->
-                        <img class="card-img-top" src="img/events/batucada-3-edicaowebp.webp" alt="..." style="max-width: 450px; max-height: 300px;"/>
-                        <!-- Detalhe do evento-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- Nome do evento-->
-                                <h5 class="fw-bolder">Batucada 3° edição PROJETO BATUCADA com JAMPA + YURI DIMC + CLEI</h5>
-                                <i class="fas fa-calendar" style="font-size: smaller;"></i> <label
-                                    style="font-size: smaller;">26/01</label> <br>
-                                <i class="fas fa-map-marker-alt" style="font-size: smaller;"></i> <label
-                                    style="font-size: smaller;">Brasuca</label>
-                            </div>
-                        </div>
-                        <!-- Botão Compra-->
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="batucada-3edicao.html">Seu ingresso!</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col mb-5">
-                    <div class="card h-100 shadow-lg ">
-                        <!-- Oferta badge
-                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Oferta
-                        </div> -->
+                                            <label style="font-size: smaller;">
+                                                <i class="fas fa-map-marker-alt" style="font-size: smaller;"></i> <?php echo $row['local_name']; ?>
+                                            </label>
+                                        </div>
+                                    </div>
 
-                        <!-- Imagem evento-->
-                        <img class="card-img-top" src="img/events/massacration.webp" alt="..." style="max-width: 450px; max-height: 300px;"/>
-                        <!-- Detalhe do evento-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- Nome do evento-->
-                                <h5 class="fw-bolder">Massacration</h5>
-                                <i class="fas fa-calendar" style="font-size: smaller;"></i> <label
-                                    style="font-size: smaller;">27/01</label> <br>
-                                <i class="fas fa-map-marker-alt" style="font-size: smaller;"></i> <label
-                                    style="font-size: smaller;">Brasuca</label>
+                                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                        <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="event-details.php?id=<?php echo $row['id_event']; ?>">Ver mais</a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <!-- Botão Compra-->
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="massacration.html">Seu ingresso!</a>
-                            </div>
-                        </div>
+                        <?php endwhile; ?>
                     </div>
-                </div>
-                <div class="col mb-5">
-                    <div class="card h-100 shadow-lg ">
-                        <!-- Imagem evento-->
-                        <img class="card-img-top" src="img/events/workshop-forro-rafaelpng.png" alt="..." style="max-width: 450px; max-height: 300px;"/>
-                        <!-- Detalhe do evento-->            
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- Nome do evento-->
-                                <h5 class="fw-bolder">WORKSHOP de FORRÓ com RAFAEL PICCOLOTTO</h5>
-                                <i class="fas fa-calendar" style="font-size: smaller;"></i> <label
-                                    style="font-size: smaller;">28/01</label> <br>
-                                <i class="fas fa-map-marker-alt" style="font-size: smaller;"></i> <label
-                                    style="font-size: smaller;">Brasuca</label>
-                            </div>
-                        </div>
-                        <!-- Botão Compra-->
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="workshop-de-forro.html">Seu ingresso!</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col mb-5">
-                    <div class="card h-100 shadow-lg ">
-                        <!-- Oferta badge
-                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Oferta
-                        </div> -->
-                        <!-- Imagem evento -->
-                        <img class="card-img-top" src="img/events/encontro-forrozeiros.webp" alt="..." style="max-width: 450px; max-height: 300px;"/>
-                        <!-- Detalhe do evento-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- Nome do evento-->
-                                <h5 class="fw-bolder">Encontro de forrozeiros com BASTIÃO + CLEBER GONZAGA</h5>
-                                <i class="fas fa-calendar" style="font-size: smaller;"></i> <label
-                                    style="font-size: smaller;">28/01</label> <br>
-                                <i class="fas fa-map-marker-alt" style="font-size: smaller;"></i> <label
-                                    style="font-size: smaller;">Brasuca</label>
-                            </div>
-                        </div>
-                        <!-- Botão Compra-->
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="encontro-forrozeiros.html">Seu ingresso!</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col mb-5">
-                    <div class="card h-100 shadow-lg ">
-                        <!-- Imagem evento-->
-                        <img class="card-img-top" src="img/events/pre-carnaval-200s.png" alt="..." style="max-width: 450px; max-height: 300px;"/>
-                        <!-- Detalhe do evento-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- Nome do evento-->
-                                <h5 class="fw-bolder">PRÉ-CARNAVAL da BACK TO 2000s</h5>
-                                <i class="fas fa-calendar" style="font-size: smaller;"></i> <label
-                                    style="font-size: smaller;">03/02</label> <br>
-                                <i class="fas fa-map-marker-alt" style="font-size: smaller;"></i> <label
-                                    style="font-size: smaller;">Brasuca </label>
-                            </div>
-                        </div>
-                        <!-- Botão Compra-->
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="pre-carnaval.html">Seu ingresso!</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col mb-5">
-                    <div class="card h-100 shadow-lg">
-                        <!-- Oferta badge
-                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Oferta
-                        </div> -->
-                        <!-- Imagem evento-->
-                        <img class="card-img-top" src="img/events/bloco-pancadao_.png" alt="..." style="max-width: 450px; max-height: 300px;" />
-                        <!-- Detalhe do evento-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- Nome do evento-->
-                                <h5 class="fw-bolder">BLOCO DA PANCADÃO</h5>
-                                <i class="fas fa-calendar" style="font-size: smaller;"></i> <label
-                                    style="font-size: smaller;">13/02</label> <br>
-                                <i class="fas fa-map-marker-alt" style="font-size: smaller;"></i> <label
-                                    style="font-size: smaller;">Brasuca </label>
-                            </div>
-                        </div>
-                        <!-- Botão Compra-->
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="bloco-pancadao.html">Seu ingresso!</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col mb-5">
-                    <div class="card h-100 shadow-lg">
-                        <!-- Imagem evento-->
-                        <img class="card-img-top" src="img/events/lori-e-o-racun.webp" style="max-width: 450px; max-height: 300px;"alt="..." />
-                        <!-- Detalhe do evento-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- Nome do evento-->
-                                <h5 class="fw-bolder">LORI e O RACÚN convidam SOUL.ZA e ELLA DJ</h5>
-                                <i class="fas fa-calendar" style="font-size: smaller;"></i> <label
-                                    style="font-size: smaller;">17/02</label> <br>
-                                <i class="fas fa-map-marker-alt" style="font-size: smaller;"></i> <label
-                                    style="font-size: smaller;">Brasuca </label>
-                            </div>
-                        </div>
-                        <!-- Botão Compra-->
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="lori-e-racun.html">Seu ingresso!</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
 
                 <div class="row justify-content-center align-items-center">
                     <ul class="pagination mx-auto text-center justify-content-center">
